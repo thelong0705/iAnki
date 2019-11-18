@@ -1,29 +1,27 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 4rem">
-    <a class="navbar-brand ml-5" href="#">iAnki</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item ml-5">
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </li>
-        <li class="ml-3">
-         <a class="nav-link" href="#">
-            <i class="fas fa-plus"></i>
-            Create
-          </a>
-        </li>
-      </ul>
-      <nav class="nav">
-        <a class="nav-link active" href="#">Login</a>
-        <a class="nav-link"  href="#">Sign Up</a>
-      </nav>
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Lorem Ifsum</h1>
+      <p class="lead text-muted">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique ligula eget nibh congue fermentum.
+        Nulla in pellentesque enim. Duis porta est vel sapien eleifend, id euismod est auctor. Morbi at rutrum justo.
+        Vivamus gravida congue nulla sed commodo. Integer at vestibulum turpis, sed interdum mi
+      </p>
+      <p>
+        <a href="#" class="btn-lg btn-primary my-2">Get started</a>
+      </p>
     </div>
-  </nav>
-</header>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <% 9.times do %>
+          <%= render "card" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</main>
 
