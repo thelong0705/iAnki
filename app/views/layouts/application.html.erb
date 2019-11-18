@@ -21,20 +21,26 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item ml-5">
               <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="search" placeholder=<%= t :search %> aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                  <%= t :search %>
+                </button>
               </form>
             </li>
             <li class="ml-3">
               <a class="nav-link" href="#">
                 <i class="fas fa-plus"></i>
-                Create
+                <%= t :create %>
               </a>
             </li>
           </ul>
           <nav class="nav">
-            <a class="nav-link active" href="#">Login</a>
-            <a class="nav-link" href="#">Sign Up</a>
+            <a class="nav-link active" href="#">
+              <%= t :login %>
+            </a>
+            <a class="nav-link" href="#">
+              <%= t :sign_up %>
+            </a>
           </nav>
         </div>
       </div>
@@ -46,11 +52,12 @@
 
 <footer class="text-muted">
   <div class="container">
-    <p class="float-right">
-      <a href="#">EN</a>
-      <a href="#">JP</a>
-      <a href="#">VI</a>
+    <p class="float-right" style="font-size: 40px">
+      <%= link_to '🇬🇧', root_url %>
+      <%= link_to '🇯🇵', home_url(:jp) %>
     </p>
-    <p>A website to help users study with flash card</p>
+    <p>
+      <%= t :footer_text %>
+    </p>
   </div>
 </footer>

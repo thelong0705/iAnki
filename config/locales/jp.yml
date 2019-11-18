@@ -1,0 +1,12 @@
+jp:
+  login: "ログイン"
+  sign_up: "新規登録"
+  search: "検索"
+  create: "作成"
+  get_started: "学習を始めましょう"
+  terms: "用語"
+  footer_text:  "暗記カードの学習者を手伝うサイト"
+  study: "習う"
+  lorem_ifsum: "ほげほげ"
+  long_lorem_ifsum: "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
+  number_of_cards: "現在の学習セット数"

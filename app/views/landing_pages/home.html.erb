@@ -1,20 +1,32 @@
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Lorem Ifsum</h1>
+      <h1 class="jumbotron-heading">
+        <%= t :lorem_ifsum %>
+      </h1>
       <p class="lead text-muted">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique ligula eget nibh congue fermentum.
-        Nulla in pellentesque enim. Duis porta est vel sapien eleifend, id euismod est auctor. Morbi at rutrum justo.
-        Vivamus gravida congue nulla sed commodo. Integer at vestibulum turpis, sed interdum mi
+        <%= t :long_lorem_ifsum %>
       </p>
       <p>
-        <a href="#" class="btn-lg btn-primary my-2">Get started</a>
+        <a href="#" class="btn-lg btn-primary my-2">
+          <%= t :get_started %>
+        </a>
       </p>
     </div>
   </section>
 
   <div class="album py-5 bg-light">
     <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h1 class="jumbotron-heading">
+            350
+          </h1>
+          <h2 class="jumbotron-heading">
+            <%= t :number_of_cards %>
+          </h2>
+        </div>
+      </div>
       <div class="row">
         <% 9.times do %>
           <%= render "card" %>
