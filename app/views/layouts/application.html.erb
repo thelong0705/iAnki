@@ -38,9 +38,8 @@
             <a class="nav-link active" href="#">
               <%= t :login %>
             </a>
-            <a class="nav-link" href="#">
-              <%= t :sign_up %>
-            </a>
+
+            <%= link_to t(:sign_up), sign_up_path, class: "nav-link" %>
           </nav>
         </div>
       </div>
