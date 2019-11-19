@@ -1,2 +1,21 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign Up</h1>
+<%= form_with model: @user, local: true do |f| %>
+  <%= @user.errors.full_messages %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+  <%= f.submit nil, class: "btn btn-primary" %>
+<% end %>
