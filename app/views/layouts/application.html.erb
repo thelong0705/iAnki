@@ -13,7 +13,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 4rem">
       <div class="container">
-        <a class="navbar-brand" href="#">iAnki</a>
+        <%= link_to "iAnki", root_url, class: "navbar-brand" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,10 +35,7 @@
             </li>
           </ul>
           <nav class="nav">
-            <a class="nav-link active" href="#">
-              <%= t :login %>
-            </a>
-
+            <%= link_to t(:login), login_path, class: "nav-link" %>
             <%= link_to t(:sign_up), sign_up_path, class: "nav-link" %>
           </nav>
         </div>
