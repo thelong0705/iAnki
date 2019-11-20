@@ -1,0 +1,6 @@
+<% if @user %>
+$("#session_password").addClass("is-invalid")
+$("#session_email").removeClass("is-invalid")
+<% else %>
+$("#session_email").addClass("is-invalid")
+<% end %>
