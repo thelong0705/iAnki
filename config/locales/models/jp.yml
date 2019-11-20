@@ -1,0 +1,10 @@
+jp:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メール
+        password: パスワード
+        password_confirmation: 確認パスワード

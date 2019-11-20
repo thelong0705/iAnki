@@ -12,3 +12,8 @@ en:
     Nulla in pellentesque enim. Duis porta est vel sapien eleifend, id euismod est auctor. Morbi at rutrum justo.
     Vivamus gravida congue nulla sed commodo. Integer at vestibulum turpis, sed interdum mi"
   number_of_cards: "Cards and counting"
+  invalid_email: "Invalid Email"
+  invalid_password: "Invalid Password"
+  email: "Email"
+  password: "Password"
+  close: "Close"

@@ -10,3 +10,8 @@ jp:
   lorem_ifsum: "ほげほげ"
   long_lorem_ifsum: "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
   number_of_cards: "現在の学習セット数"
+  invalid_email: "メールを確認してください"
+  invalid_password: "パスワードを確認してください"
+  email: "メール"
+  password: "パスワード"
+  close: "閉める"
