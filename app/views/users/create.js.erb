@@ -1,0 +1,10 @@
+$("#signUpModalBody input").removeClass("is-invalid")
+$("#signUpModalBody .invalid-feedback").remove()
+<% @user.errors.messages.each do |key, value| %>
+  $("#signUpModalBody #<%= "user_#{key.to_s}" %>").addClass("is-invalid")
+  $("#signUpModalBody #<%= "user_#{key.to_s}" %>").after(`
+      <div class="invalid-feedback">
+         <%= value.reduce('') { |sum, v| sum + "#{key.to_s.capitalize} #{v}. "} %>
+      </div>
+  `);
+<% end %>
