@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get '/:locale', to: 'landing_pages#home', constraints: { locale: /jp/ }, as: 'home'
   get '/sign_up', to: 'users#new'
   resources :users
-  get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 end
