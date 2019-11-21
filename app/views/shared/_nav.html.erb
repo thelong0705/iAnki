@@ -22,12 +22,16 @@
         </li>
       </ul>
       <nav class="nav">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-          <%= t :login %>
-        </button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
-          <%= t :sign_up %>
-        </button>
+        <% if current_user %>
+          <%= link_to t(:log_out),logout_path, method: :delete, class: "btn btn-primary"  %>
+        <% else %>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+            <%= t :login %>
+          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+            <%= t :sign_up %>
+          </button>
+        <% end %>
       </nav>
     </div>
   </div>
