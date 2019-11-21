@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user && @user.authenticate(params[:session][:password])
         log_in @user
+        remember @user
         format.html { redirect_to @user }
       else
         format.js
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if current_user
     redirect_to root_url
   end
 
