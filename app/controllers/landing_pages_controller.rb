@@ -1,4 +1,4 @@
 class LandingPagesController < ApplicationController
-  def home
+  def show
   end
 end
