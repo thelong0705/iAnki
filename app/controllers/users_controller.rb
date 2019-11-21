@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user
+      log_in @user
+      redirect_to home_path
     else
       respond_to do |format|
         format.js
