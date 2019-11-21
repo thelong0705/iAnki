@@ -1,11 +1,13 @@
-<footer class="text-muted">
-  <div class="container">
-    <p class="float-right" style="font-size: 40px">
-      <%= link_to '🇬🇧', root_url %>
-      <%= link_to '🇯🇵', home_url(:jp) %>
-    </p>
-    <p>
-      <%= t :footer_text %>
-    </p>
-  </div>
-</footer>
+<% if current_user.nil? %>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right" style="font-size: 40px">
+        <%= link_to '🇬🇧', root_path %>
+        <%= link_to '🇯🇵', landing_path(:jp) %>
+      </p>
+      <p>
+        <%= t :footer_text %>
+      </p>
+    </div>
+  </footer>
+<% end  %>

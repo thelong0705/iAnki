@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:session][:password])
         log_in @user
         remember @user
-        format.html { redirect_to @user }
+        format.html { redirect_to home_url }
       else
         format.js
       end
