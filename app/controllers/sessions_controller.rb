@@ -4,9 +4,11 @@ class SessionsController < ApplicationController
 
     respond_to do |format|
       if @user && @user.authenticate(params[:session][:password])
-        log_in @user
-        remember @user
-        format.html { redirect_to home_url }
+        if @user.activated
+          log_in @user
+          remember @user
+          format.html { redirect_to home_url }
+        end
       else
         format.js
       end
