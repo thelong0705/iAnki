@@ -15,13 +15,8 @@
   <div class="row">
     <div class="col-3">
       <div class="list-group">
-        <button type="button" class="list-group-item list-group-item-action">
-          <%= link_to t(:settings), current_user %>
-        </button>
-        <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-        <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-        <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-        <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+        <%= link_to t(:home), home_path, class: "list-group-item list-group-item-action" %>
+        <%= link_to t(:settings), current_user, class: "list-group-item list-group-item-action" %>
       </div>
     </div>
     <%= render 'sessions/login_modal' %>
