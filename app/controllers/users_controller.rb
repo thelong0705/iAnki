@@ -7,8 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      log_in @user
-      redirect_to home_path
+      # log_in @user
+      # redirect_to home_path
+      UserMailer.account_activation(@user).deliver_now
+      redirect_to root_url
     else
       respond_to do |format|
         format.js
