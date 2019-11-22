@@ -1,2 +1,8 @@
-<h1>PasswordResets#new</h1>
-<p>Find me in app/views/password_resets/new.html.erb</p>
+<%= form_with url: password_resets_path, local: true, scope: "password_reset", class: "mx-auto mt-lg-5 my-auto" do |f|  %>
+  <h1 class="mt-lg-5">Reset your password</h1>
+  <div class="form-group">
+    <%= f.label :email, t(:email) %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+  <%= f.submit t(:login), class: "mx-auto btn btn-primary" %>
+<% end %>

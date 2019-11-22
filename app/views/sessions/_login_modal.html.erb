@@ -27,9 +27,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            <%= t(:close) %>
-          </button>
+
+          <%= link_to "Forgot Password", new_password_reset_path, class: "btn btn-secondary" %>
           <%= f.submit t(:login), class: "btn btn-primary" %>
         </div>
       </div>
