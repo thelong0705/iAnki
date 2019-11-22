@@ -13,17 +13,10 @@
 <%= render 'shared/nav' %>
 <div class="container mt-3 mb-3">
   <div class="row">
-    <div class="col-3">
-      <div class="list-group">
-        <%= link_to t(:home), home_path, class: "list-group-item list-group-item-action" %>
-        <%= link_to t(:settings), current_user, class: "list-group-item list-group-item-action" %>
-      </div>
-    </div>
+    <%= render 'shared/sidebar' %>
     <%= render 'sessions/login_modal' %>
     <%= render 'users/sign_up_modal' %>
-    <div class="col-9">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </div>
 </div>
 <%= render 'shared/footer' %>
