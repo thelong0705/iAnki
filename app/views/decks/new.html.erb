@@ -2,23 +2,15 @@
 <%= form_with model: @deck, local: true do |f| %>
   <div class="form-group mt-3">
     <div class="row">
-      <div class="col-12">
+      <div class="col-6 mb-3">
         <%= f.text_field :name, class: "bottom-border-input", placeholder: "Set name" %>
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.fields_for :cards do |f| %>
-      <div class="row">
-        <div class="col">
-          <%= f.text_field :question, class: "form-control", placeholder: "Question" %>
-        </div>
-        <div class="col">
-          <%= f.text_field :answer, class: "form-control", placeholder: "Answer" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: "card_form", locals: { deck_form: f } %>
+  <%= render partial: "card_form", locals: { deck_form: f } %>
+  <%= render partial: "card_form", locals: { deck_form: f } %>
+  <%= render partial: "card_form", locals: { deck_form: f } %>
 
   <%= f.submit "Create set", class: "btn btn-primary" %>
 <% end %>
