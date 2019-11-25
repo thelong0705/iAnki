@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_044222) do
+ActiveRecord::Schema.define(version: 2019_11_25_062852) do
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.bigint "deck_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deck_id"], name: "index_cards_on_deck_id"
+  end
 
   create_table "decks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -37,5 +46,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_044222) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "cards", "decks"
   add_foreign_key "decks", "users"
 end

@@ -1,6 +1,7 @@
 class DecksController < ApplicationController
   def new
     @deck = Deck.new
+    @deck.cards.build
   end
 
   def create
@@ -15,6 +16,6 @@ class DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:name)
+    params.require(:deck).permit(:name, cards_attributes: [:question, :answer])
   end
 end
