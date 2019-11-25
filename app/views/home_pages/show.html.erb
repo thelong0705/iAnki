@@ -1,1 +1,18 @@
-asdad
+<div class="card bg-light">
+  <div class="card-body">
+    <h5 class="card-title">Welcome <%= @current_user.name %>!</h5>
+    <p class="card-text">Create a study set </p>
+    <%= link_to "Create set", new_deck_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col">
+    <h5>Recent</h5>
+  </div>
+</div>
+
+<div class="row mt-1">
+  <%= render @decks %>
+</div>
+

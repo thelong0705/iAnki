@@ -14,12 +14,14 @@
 <div class="container mt-3 mb-3" style="min-height: 600px">
   <div class="row">
     <%= render 'shared/sidebar' %>
-    <%= render 'sessions/login_modal' %>
-    <%= render 'users/sign_up_modal' %>
-    <%= yield %>
+    <div class="col-9">
+      <%= yield %>
+    </div>
   </div>
 </div>
 <%= render 'shared/footer' %>
+<%= render 'users/sign_up_modal' %>
+<%= render 'sessions/login_modal' %>
 </body>
 </html>
 
