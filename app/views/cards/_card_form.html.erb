@@ -1,6 +1,6 @@
 <div class="form-group">
   <%= deck_form.fields_for :cards do |f| %>
-    <div class="row">
+    <div class="row card-form-row" id=<%= f.index %>>
       <div class="col">
         <%= f.text_field :question, class: "form-control", placeholder: "Question" %>
       </div>

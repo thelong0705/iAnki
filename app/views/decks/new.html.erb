@@ -1,5 +1,6 @@
 <h3>Create a new study set</h3>
 <%= form_with model: @deck, local: true do |f| %>
+  <% @deck_form = f %>
   <div class="form-group mt-3">
     <div class="row">
       <div class="col-6 mb-3">
@@ -8,11 +9,30 @@
     </div>
   </div>
   <% 5.times do %>
-    <%= render partial: "card_form", locals: { deck_form: f } %>
+    <%= render partial: "cards/card_form", locals: { deck_form: f } %>
   <% end %>
   <div class="row justify-content-center">
-    <span class="btn-primary btn">Add</span>
+    <span class="btn-primary btn" id="addCard">Add</span>
   </div>
   <%= f.submit "Create set", class: "btn btn-primary float-right" %>
-
 <% end %>
+
+<script>
+    $("#addCard").click(function() {
+        let unique_id = parseInt($(".card-form-row").last().attr('id')) + 1;
+        $(".card-form-row").last().parent().after(
+            `
+            <div class="form-group">
+              <div class="row card-form-row" id="${unique_id}">
+                <div class="col">
+                  <input class="form-control" placeholder="Question" type="text" name="deck[cards_attributes][${unique_id}][question]">
+                </div>
+                <div class="col">
+                  <input class="form-control" placeholder="Answer" type="text" name="deck[cards_attributes][${unique_id}][answer]">
+                </div>
+              </div>
+            </div>
+            `
+        );
+    });
+</script>
