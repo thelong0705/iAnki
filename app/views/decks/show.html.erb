@@ -1,0 +1,27 @@
+<h3><%= @deck.name %></h3>
+<p class="mt-4">Terms in this set</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Question</th>
+    <th scope="col">Answer</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @deck.cards.each_with_index  do |card, index| %>
+    <tr>
+      <th scope="row"><%= index +1 %></th>
+      <td><%= card.question %></td>
+      <td><%= card.answer %></td>
+      <td>
+        <button class="btn-primary">Edit</button>
+        <button class="btn-primary">Delete</button>
+      </td>
+    </tr>
+  <% end %>
+
+
+  </tbody>
+</table>

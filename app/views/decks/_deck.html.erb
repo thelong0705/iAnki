@@ -1,9 +1,13 @@
 <div class="col-md-4">
   <div class="card mb-3" >
     <div class="card-body">
-      <h5 class="card-title"><%= deck.name %></h5>
-      <p class="card-text">This is</p>
-      <p class="card-text mt-5"><small class="text-muted"><%= deck.created_at %></small></p>
+      <%= link_to deck.name, deck, class: "font-weight-bold card-title stretched-link" %>
+      <p class="card-text">
+        <%= deck.cards.size %> terms
+      </p>
+      <p class="card-text mt-5"><small class="text-muted">
+        <%= time_ago_in_words(deck.created_at) %> ago</small>
+      </p>
     </div>
   </div>
 </div>
