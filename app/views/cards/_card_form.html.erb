@@ -1,12 +1,15 @@
-<div class="form-group">
-  <%= deck_form.fields_for :cards do |f| %>
+<%= deck_form.fields_for :cards do |f| %>
+  <div class="form-group">
     <div class="row card-form-row" id=<%= f.index %>>
-      <div class="col">
+      <div class="col-6">
         <%= f.text_field :question, class: "form-control", placeholder: "Question" %>
       </div>
-      <div class="col">
+      <div class="col-5">
         <%= f.text_field :answer, class: "form-control", placeholder: "Answer" %>
       </div>
+      <div class="col-1 float-right">
+        <%= f.check_box :_destroy, class: "form-control" %>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
