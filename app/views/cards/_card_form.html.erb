@@ -8,7 +8,10 @@
         <%= f.text_field :answer, class: "form-control", placeholder: "Answer" %>
       </div>
       <div class="col-1 float-right">
-        <%= f.check_box :_destroy, class: "form-control" %>
+        <%= f.hidden_field :_destroy %>
+        <button class="btn btn-danger btn-sm deleteRow">
+          <i class="fas fa-trash"></i>
+        </button>
       </div>
     </div>
   </div>
