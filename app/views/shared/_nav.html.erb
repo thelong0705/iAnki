@@ -15,10 +15,7 @@
           </form>
         </li>
         <li class="ml-3">
-          <a class="nav-link" href="#">
-            <i class="fas fa-plus"></i>
-            <%= t :create %>
-          </a>
+          <%= link_to t(:create), new_deck_path, class: "nav-link nav-link-white" %>
         </li>
       </ul>
       <nav class="nav">

@@ -7,10 +7,12 @@
       </div>
     </div>
   </div>
-  <%= render partial: "card_form", locals: { deck_form: f } %>
-  <%= render partial: "card_form", locals: { deck_form: f } %>
-  <%= render partial: "card_form", locals: { deck_form: f } %>
-  <%= render partial: "card_form", locals: { deck_form: f } %>
+  <% 5.times do %>
+    <%= render partial: "card_form", locals: { deck_form: f } %>
+  <% end %>
+  <div class="row justify-content-center">
+    <span class="btn-primary btn">Add</span>
+  </div>
+  <%= f.submit "Create set", class: "btn btn-primary float-right" %>
 
-  <%= f.submit "Create set", class: "btn btn-primary" %>
 <% end %>
