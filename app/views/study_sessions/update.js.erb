@@ -1,2 +1,7 @@
-$(".question-area").html("Q: <%= @card.question %>").show();
-$(".answer-area").html("A: <%= @card.answer %>").hide();
+<% if @card.nil?  %>
+  $("#quizArea").hide();
+<% else %>
+  $(".question-area").html("Q: <%= @card.question %>").show();
+  $(".answer-area").html("A: <%= @card.answer %>").hide();
+  $("#card_id").val(<%= @card.id %>)
+<% end %>

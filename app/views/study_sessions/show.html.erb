@@ -1,19 +1,28 @@
-<div class="question-area">
-  Q: <%= @card.question %>
-</div>
-<div class="answer-area" style="display: none;">
-  A: <%= @card.answer %>
-</div>
-
-<div class="mt-3">
-  <%= form_with url: study_session_path(@deck), scope: "study_session", method: "patch" do |f| %>
-    <button class="btn btn-primary" id="showBtn">Show</button>
-    <%= f.submit "Next", class: "btn btn-primary" %>
-  <% end %>
-</div>
+<% if @card.nil? %>
+  <div id="allRemembered">
+    You 've remembered all cards in this set!
+  </div>
+<% else %>
+  <div id="quizArea">
+    <div class="question-area">
+      Q: <%= @card.question %>
+    </div>
+    <div class="answer-area" style="display: none;">
+      A: <%= @card.answer %>
+    </div>
+    <div class="mt-3">
+      <%= form_with url: study_session_path(@deck), method: "patch" do |f| %>
+        <button class="btn btn-primary" id="showBtn">Flip</button>
+        <%= hidden_field_tag(:card_id, @card.id) %>
+        <%= f.submit "Study again", class: "btn btn-primary" %>
+        <%= f.submit "Got it", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <script>
-    $("#showBtn").on( "click", function(e) {
+    $("#showBtn").on("click", function (e) {
         e.preventDefault();
         $(".question-area").toggle();
         $(".answer-area").toggle();
