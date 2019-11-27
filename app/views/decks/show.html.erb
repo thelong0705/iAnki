@@ -1,6 +1,11 @@
-<h3><%= @deck.name %></h3>
-<p class="mt-4">Terms in this set</p>
-<table class="table">
+<h1 class="display-4">
+  <%= @deck.name %>
+</h1>
+<%= link_to "Study this set", nil %>
+<hr class="my-4">
+
+<h3 class="mt-5">Terms in this set</h3>
+<table class="table mt-3">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -16,12 +21,16 @@
       <td><%= card.question %></td>
       <td><%= card.answer %></td>
       <td>
-        <button class="btn-primary">Edit</button>
-        <button class="btn-primary">Delete</button>
+        <button class="btn-sm btn-secondary">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="btn-sm btn-danger">
+          <i class="fas fa-trash"></i>
+        </button>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to "Add terms", edit_deck_path, class: "btn-lg btn btn-primary"  %>
+<%= link_to "Add terms", edit_deck_path, class: "btn btn-primary"  %>
