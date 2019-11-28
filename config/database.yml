@@ -16,6 +16,7 @@ test:
 
 production:
   <<: *default
-  database: iAnki_production
-  username: iAnki
-  password: <%= ENV['IANKI_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  host: <%= ENV['DB_HOSTNAME'] %>
+  username: <%= ENV['DB_USERNAME']%>
+  password: <%= ENV['DB_PASSWORD'] %>
