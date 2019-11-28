@@ -1,30 +1,69 @@
-<% if @card.nil? %>
-  <div id="allRemembered">
-    You 've remembered all cards in this set!
+<!--<div class="row">-->
+<!--  <div class="flipper col-md-9 ">-->
+<!--    <div class="front-card flip-card">-->
+<!--      <div class="card-image">-->
+<!--        <div class="header-front"></div>-->
+<!--        <span class="card-title">Front Card</span>-->
+<!--      </div>-->
+<!--      <div class="card-content">-->
+<!--        <p>Front Content - (Click to Flip)</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="back-card flip-card">-->
+<!--      <div class="card-image">-->
+<!--        <div class="header-back"></div>-->
+<!--        <span class="card-title">Back Card</span>-->
+<!--      </div>-->
+<!--      <div class="card-content">-->
+<!--        <p>Back Content - (Click to Flip)</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="card text-center flip-card">-->
+<!--  <div class="card-header">-->
+<!--    Question-->
+<!--  </div>-->
+<!--  <div class="card-body" style="height: 200px">-->
+<!--    <h5 class="card-title">Question</h5>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="flip-card border-info">
+  <div class="flip-card-inner">
+    <div class="flip-card-front bg-light">
+      <h1 class="center-text">Long</h1>
+    </div>
+    <div class="flip-card-back bg-light ">
+      <h1 class="center-text">John Doe</h1>
+    </div>
   </div>
-<% else %>
-  <div id="quizArea">
-    <div class="question-area">
-      Q: <%= @card.question %>
-    </div>
-    <div class="answer-area" style="display: none;">
-      A: <%= @card.answer %>
-    </div>
-    <div class="mt-3">
-      <%= form_with url: study_session_path(@deck), method: "patch" do |f| %>
-        <button class="btn btn-primary" id="showBtn">Flip</button>
-        <%= hidden_field_tag(:card_id, @card.id) %>
-        <%= f.submit "Study again", class: "btn btn-primary" %>
-        <%= f.submit "Got it", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
+</div>
+
+<%= form_with url: study_session_path(@deck), method: "patch", class: "mt-3" do |f| %>
+<%= hidden_field_tag(:card_id, @card.id) %>
+<%= f.submit "Study again", class: "btn-lg btn-primary" %>
+<%= f.submit "Got it", class: "btn-lg btn-primary float-right" %>
 <% end %>
 
-<script>
-    $("#showBtn").on("click", function (e) {
-        e.preventDefault();
-        $(".question-area").toggle();
-        $(".answer-area").toggle();
-    });
-</script>
+
+
+<%# if @card.nil? %>
+<!--  <div id="allRemembered">-->
+<!--    You 've remembered all cards in this set!-->
+<!--  </div>-->
+<%# else %>
+<!--  <div id="quizArea">-->
+<!--    <div class="question-area">-->
+<!--      Q: <%#= @card.question %>-->
+<!--    </div>-->
+<!--    <div class="answer-area" style="display: none;">-->
+<!--      A: <%#= @card.answer %>-->
+<!--    </div>-->
+<!--    <div class="mt-3">-->
+
+<!--    </div>-->
+<!--  </div>-->
+<%# end %>
