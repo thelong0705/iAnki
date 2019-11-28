@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      redirect_to root_url
+      redirect_to account_activations_url
     else
       respond_to do |format|
         format.js

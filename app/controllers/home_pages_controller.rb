@@ -1,5 +1,5 @@
 class HomePagesController < ApplicationController
-  def show
+  def index
     @decks = current_user.decks
   end
 end
