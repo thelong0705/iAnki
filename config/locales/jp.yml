@@ -22,4 +22,67 @@ jp:
   name: 名前
   password_confirmation: 確認パスワード
   check your email: "確認メールを送りしました。確認してください"
+  welcome: "ようこそ"
+  create_set_prompt: "セットを作成しましょう！"
+  create_set: "セット作成"
+  recent: "最近"
+  ago: "前"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_years:
+        one: 1年
+        other: "%{count}年"
+    prompts:
+      second: 秒
+      minute: 分
+      hour: 時
+      day: 日
+      month: 月
+      year: 年
+  study_this_set: "セット学習"
+  terms_in_this_set: "セットの用語"
+  question: "質問"
+  answer: "答え"
+  edit_set: "セット編集"
+  add: "追加"
+  update_set_prompt: "このセットを編集しましょう"
+  study_again: "もう一度"
+  got_it: "分かった"
+  learn_again: "復習する"
+  congratulations: "おめでとうございます！"
+  have_learnt_all: "お疲れ様でした。全部勉強した"
 

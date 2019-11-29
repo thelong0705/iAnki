@@ -3,10 +3,10 @@
     <div class="card-body">
       <%= link_to deck.name, deck, class: "font-weight-bold card-title stretched-link" %>
       <p class="card-text">
-        <%= deck.cards.size %> terms
+        <%= deck.cards.size %> <%= t "terms" %>
       </p>
       <p class="card-text mt-5"><small class="text-muted">
-        <%= time_ago_in_words(deck.created_at) %> ago</small>
+        <%= "#{time_ago_in_words(deck.created_at)} #{t 'ago'} "%> </small>
       </p>
     </div>
   </div>

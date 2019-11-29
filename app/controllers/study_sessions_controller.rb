@@ -6,13 +6,13 @@ class StudySessionsController < ApplicationController
 
 
   def update
-    if params[:commit] == "Learn again"
+    if params[:commit] == "learn_again"
       deck = Deck.find(params[:id])
       deck.cards.update_all is_remembered: false
       redirect_to study_session_path(deck)
     end
 
-    if params[:commit] == "Got it"
+    if params[:commit] == "got_it"
       Card.find(params[:card_id]).update(is_remembered: true)
     end
 

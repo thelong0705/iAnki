@@ -22,6 +22,8 @@
         <% if current_user %>
           <%= link_to t(:log_out),logout_path, method: :delete, class: "btn btn-primary"  %>
         <% else %>
+          <%= link_to '🇬🇧', root_path, class: "btn btn-primary", style: "font-size: 30px" %>
+          <%= link_to '🇯🇵', landing_path(:jp), class: "btn btn-primary", style: "font-size: 30px" %>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
             <%= t :login %>
           </button>

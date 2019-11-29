@@ -1,17 +1,19 @@
 <h1 class="display-4">
   <%= @deck.name %>
 </h1>
-<%= link_to "Study this set", study_session_path(@deck) %>
+<%= link_to t("study_this_set"), study_session_path(@deck) %>
 <hr class="my-4">
 
-<h3 class="mt-5">Terms in this set</h3>
+<h3 class="mt-5">
+  <%= t("terms_in_this_set") %>
+</h3>
 <table class="table mt-3">
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">Question</th>
-    <th scope="col">Answer</th>
-    <th scope="col">Action</th>
+    <th scope="col"><%= t "question" %></th>
+    <th scope="col"><%= t "answer" %></th>
+    <th scope="col"></th>
   </tr>
   </thead>
   <tbody>
@@ -33,4 +35,4 @@
   </tbody>
 </table>
 
-<%= link_to "Add terms", edit_deck_path, class: "btn btn-primary"  %>
+<%= link_to t("edit_set"), edit_deck_path, class: "btn btn-primary"  %>

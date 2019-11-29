@@ -1,10 +1,12 @@
-<h3>Create a new study set</h3>
+<h3>
+  <%= t("create_set_prompt") %>
+</h3>
 <%= form_with model: @deck, local: true do |f| %>
   <% @deck_form = f %>
   <div class="form-group mt-3">
     <div class="row">
       <div class="col-6 mb-3">
-        <%= f.text_field :name, class: "bottom-border-input", placeholder: "Set name" %>
+        <%= f.text_field :name, class: "bottom-border-input", placeholder: t("name") %>
       </div>
     </div>
   </div>
@@ -12,7 +14,9 @@
     <%= render partial: "cards/card_form", locals: { deck_form: f } %>
   <% end %>
   <div class="row justify-content-center">
-    <button class="btn-primary btn" id="addCard">Add</button>
+    <button class="btn-primary btn" id="addCard">
+      <%= t "add" %>
+    </button>
   </div>
-  <%= f.submit "Create set", class: "btn btn-primary float-right" %>
+  <%= f.submit t("create_set"), class: "btn btn-primary float-right" %>
 <% end %>
