@@ -1,0 +1,14 @@
+
+<%= form_with model: @user do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :locale %>
+    <%= f.select :locale, [['English', nil], %w(Japan jp)], {}, {:class => 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.submit t("update"), class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

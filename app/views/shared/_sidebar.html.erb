@@ -2,7 +2,7 @@
   <div class="col-3">
     <div class="list-group">
       <%= link_to t(:home), home_path, class: "list-group-item list-group-item-action" %>
-      <%= link_to t(:settings), current_user, class: "list-group-item list-group-item-action" %>
+      <%= link_to t(:settings), edit_user_path(current_user), class: "list-group-item list-group-item-action" %>
     </div>
   </div>
 <% end %>
