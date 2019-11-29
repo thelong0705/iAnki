@@ -21,3 +21,6 @@ en:
   settings: "Settings"
   home: "Home"
   forgot_password: "Forgot password"
+  name: "Name"
+  password_confimation: "Password confirmation"
+  check your email: "Please check your email to finish registration"

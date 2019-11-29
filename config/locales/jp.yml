@@ -21,4 +21,5 @@ jp:
   forgot_password: "パスワードを忘れた"
   name: 名前
   password_confirmation: 確認パスワード
+  check your email: "確認メールを送りしました。確認してください"
 

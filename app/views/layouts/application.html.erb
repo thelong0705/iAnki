@@ -7,10 +7,14 @@
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-mutate-approach="sync"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <%= render 'shared/nav' %>
+<%= render 'shared/toast' %>
+
+
 <div class="container mt-3 mb-3" style="min-height: 600px">
   <div class="row">
     <%= render 'shared/sidebar' %>

@@ -1,3 +1,11 @@
+<% unless flash.empty? %>
+  <% key, value = flash.first %>
+  $('#toastHeader').text('<%= key.to_s.capitalize %>');
+  $('#toastBody').text('<%= value %>');
+  $('.toast').toast('show');
+  $('#signUpModal').modal('toggle')
+<% end %>
+
 $("#signUpModalBody input").removeClass("is-invalid")
 $("#signUpModalBody .invalid-feedback").remove()
 <% @user.errors.messages.each do |key, value| %>
