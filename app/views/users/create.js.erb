@@ -4,7 +4,7 @@ $("#signUpModalBody .invalid-feedback").remove()
   $("#signUpModalBody #<%= "user_#{key.to_s}" %>").addClass("is-invalid")
   $("#signUpModalBody #<%= "user_#{key.to_s}" %>").after(`
       <div class="invalid-feedback">
-         <%= value.reduce('') { |sum, v| sum + "#{key.to_s.capitalize} #{v}. "} %>
+         <%= value.reduce('') { |sum, v| sum + "#{t(key).capitalize} #{v}. "} %>
       </div>
   `);
 <% end %>
