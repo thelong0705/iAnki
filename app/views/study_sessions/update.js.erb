@@ -1,4 +1,7 @@
-<% if @card  %>
+<% if @card.nil?  %>
+  $(".all-learn-area").show();
+  $(".flash-card-area").hide();
+<% else %>
   $(".question-area").text("<%= @card.question %>");
   $(".answer-area").text("<%= @card.answer %>");
   $("#card_id").val(<%= @card.id %>)
