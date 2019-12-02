@@ -8,6 +8,7 @@
         <%= t "have_learnt_all" %>
       </h5>
       <%= form_with url: study_session_path(@deck), method: "patch", class: "mt-3" do |f| %>
+        <%= f.hidden_field :locale, value: params[:locale] %>
         <%= f.button t("learn_again"), class: "btn-lg btn-primary", name: "commit", value: "learn_again" %>
       <% end %>
     </div>

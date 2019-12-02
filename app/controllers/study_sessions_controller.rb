@@ -9,7 +9,7 @@ class StudySessionsController < ApplicationController
     if params[:commit] == "learn_again"
       deck = Deck.find(params[:id])
       deck.cards.update_all is_remembered: false
-      redirect_to study_session_path(deck)
+      redirect_to study_session_path(deck, locale: params[:locale])
     end
 
     if params[:commit] == "got_it"
