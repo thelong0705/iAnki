@@ -20,7 +20,7 @@
       <div class="row mb-5">
         <div class="col-12 text-center">
           <h1 class="jumbotron-heading">
-            350
+            <%= Deck.count %>
           </h1>
           <h2 class="jumbotron-heading">
             <%= t :number_of_cards %>
@@ -28,9 +28,9 @@
         </div>
       </div>
       <div class="row">
-        <% 9.times do %>
-          <%= render "card" %>
-        <% end %>
+        <% @decks.each do |deck| %>
+          <%= render partial: "deck", locals: { deck: deck } %>
+      <% end %>
       </div>
     </div>
   </div>
