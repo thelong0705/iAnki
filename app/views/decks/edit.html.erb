@@ -1,19 +1,4 @@
 <h3>
   <%= t "update_set_prompt" %>
 </h3>
-<%= form_with model: @deck, local: true do |f| %>
-  <div class="form-group mt-3">
-    <div class="row">
-      <div class="col-6 mb-3">
-        <%= f.text_field :name, class: "bottom-border-input", placeholder: "Set name" %>
-      </div>
-    </div>
-  </div>
-  <%= render partial: "cards/card_form", locals: { deck_form: f } %>
-  <div class="row justify-content-center">
-    <button class="btn-primary btn" id="addCard">
-      <%= t "add" %>
-    </button>
-  </div>
-  <%= f.submit t("edit_set"), class: "btn btn-primary float-right" %>
-<% end %>
+<%= render "form" %>

@@ -1,39 +1,5 @@
 <h3>
   <%= t("create_set_prompt") %>
 </h3>
-<%= form_with model: @deck, local: true do |f| %>
-  <% @deck_form = f %>
-  <div class="form-group mt-3" id="firstRow">
-    <div class="row">
-      <div class="col-6 mb-3">
-        <%= f.text_field :name, class: "bottom-border-input", placeholder: t("name") %>
-      </div>
-      <div class="col-6">
-        <button class="btn btn-primary" id="importCSV">Import CSV file</button>
-      </div>
-    </div>
-  </div>
-  <% 5.times do %>
-    <%= render partial: "cards/card_form", locals: {deck_form: f} %>
-  <% end %>
-  <div class="row">
-    <div class="col">
-      <%= f.submit t("create_set"), class: "btn btn-primary" %>
-      <button class="btn-secondary btn" id="addCard">
-        <%= t "add" %>
-      </button>
-    </div>
-  </div>
-<% end %>
 
-<div class="col-5" style="display: none;">
-  <%= form_with(url: import_decks_path, multipart: true, html: { id: "uploadFile" }) do |f| %>
-    <div class="input-group">
-      <div class="custom-file">
-        <%= f.file_field :file, class: "custom-file-input" %>
-        <%= f.label :file, "Import csv file", class: "custom-file-label" %>
-      </div>
-
-    </div>
-  <% end %>
-</div>
+<%= render "form" %>
