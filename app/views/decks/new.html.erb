@@ -3,7 +3,7 @@
 </h3>
 <%= form_with model: @deck, local: true do |f| %>
   <% @deck_form = f %>
-  <div class="form-group mt-3">
+  <div class="form-group mt-3" id="firstRow">
     <div class="row">
       <div class="col-6 mb-3">
         <%= f.text_field :name, class: "bottom-border-input", placeholder: t("name") %>
@@ -37,14 +37,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-    $( "#importCSV" ).click(function(e) {
-        e.preventDefault();
-        $("#file").click();
-    });
-
-    document.getElementById("file").onchange = function() {
-        document.getElementById("uploadFile").submit();
-    };
-</script>

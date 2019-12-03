@@ -7,7 +7,7 @@ class DecksController < ApplicationController
   def create
     @deck = current_user.decks.build(deck_params)
     if @deck.save
-      redirect_to root_url
+      redirect_to deck_path(@deck)
     else
       render 'new'
     end
@@ -40,8 +40,11 @@ class DecksController < ApplicationController
       cards_attributes << row.to_hash
     end
 
-    current_user.decks.import_csv(params[:file])
-    redirect_to home_url
+    @deck = Deck.new(cards_attributes: cards_attributes)
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
