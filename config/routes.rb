@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :users, except: :new
   resources :account_activations, only: [:edit, :index]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :decks
+  resources :decks do
+    post :import, on: :collection
+  end
   resources :study_sessions, only: [:show, :update]
 end

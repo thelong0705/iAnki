@@ -19,7 +19,7 @@ class DecksController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do
-        send_data @deck.generate_csv, filename: "#{@deck.name}_#{Time.zone.now.strftime("%Y%m%d")}"
+        send_data @deck.generate_csv, filename: "#{@deck.name}_#{Time.zone.now.strftime("%Y%m%d")}.csv"
       end
     end
   end
@@ -34,6 +34,17 @@ class DecksController < ApplicationController
     redirect_to @deck
   end
 
+  def import
+    p params[:file]
+    cards_attributes = []
+    CSV.foreach(params[:file], headers: true) do |row|
+      cards_attributes << row.to_hash
+    end
+
+    p cards_attributes
+    current_user.decks.import_csv(params[:file])
+    redirect_to home_url
+  end
 
   private
 

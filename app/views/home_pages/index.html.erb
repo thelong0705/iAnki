@@ -7,13 +7,17 @@
       <%= t 'create_set_prompt' %>
     </p>
     <%= link_to t('create_set'), new_deck_path, class: "btn btn-primary" %>
+    <%= form_with(url: import_decks_path, multipart: true) do |f| %>
+      <%= f.file_field :file %>
+      <%= f.submit nil, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 
 <div class="row mt-3">
   <div class="col">
     <h5>
-      <%= t 'recent'  %>
+      <%= t 'recent' %>
     </h5>
   </div>
 </div>
