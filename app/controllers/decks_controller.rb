@@ -35,13 +35,11 @@ class DecksController < ApplicationController
   end
 
   def import
-    p params[:file]
     cards_attributes = []
     CSV.foreach(params[:file], headers: true) do |row|
       cards_attributes << row.to_hash
     end
 
-    p cards_attributes
     current_user.decks.import_csv(params[:file])
     redirect_to home_url
   end
