@@ -15,6 +15,13 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data @deck.generate_csv, filename: "#{@deck.name}_#{Time.zone.now.strftime("%Y%m%d")}"
+      end
+    end
   end
 
   def edit

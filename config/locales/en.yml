@@ -34,7 +34,7 @@ en:
   question: "Question"
   answer: "Answer"
   edit_set: "Edit set"
-  add: "Add"
+  add: "Add row"
   update_set_prompt: "Update this study set"
   study_again: "Study again"
   got_it: "Got it"

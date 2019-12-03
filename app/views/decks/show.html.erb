@@ -34,5 +34,7 @@
   <% end %>
   </tbody>
 </table>
-
+<div class="mb-5">
 <%= link_to t("edit_set"), edit_deck_path, class: "btn btn-primary"  %>
+<%= link_to "Export CSV", deck_path(@deck, format: :csv ), class: "btn btn-secondary"  %>
+</div>
