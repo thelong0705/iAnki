@@ -41,20 +41,11 @@
 </div>
 
 <div style="display: none;">
-  <%= form_with(url: cards_search_path, html: {id: "searchKeyword"} ) do |f| %>
+  <%= form_with(url: cards_search_path, html: {id: "searchKeyword"}) do |f| %>
     <%= f.text_field :keyword %>
     <%= f.number_field :id, id: "cardRowId" %>
   <% end %>
 </div>
 
-<script>
-    $(".input-answer").one('focus', function(e) {
-        let inputWord = $(this).closest(".card-form-row").find(".input-question").val();
-        let suggestAnswerElement = $(this).siblings(".suggest-answer");
-        $("#keyword").val(inputWord);
-        $("#cardRowId").val($(this).closest(".card-form-row").attr('id'));
-        document.getElementById("searchKeyword").dispatchEvent(new Event('submit', {bubbles: true}));
-    });
-</script>
 
 

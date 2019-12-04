@@ -1,6 +1,9 @@
 $("#<%= @card_row_id %>").find(".suggest-answer").html(`
-    <span class="btn btn-outline-primary mt-2">
-        <%= @card.answer %>
-    </span>
+  <% @cards.each do |card| %>
+    <button class="btn btn-outline-primary mt-2 suggest-word">
+        <%= card.answer %>
+    </button>
+  <% end %>
 `)
 $("#<%= @card_row_id %>").find(".suggest-answer").show();
+

@@ -7,4 +7,5 @@ require("custom/add_card")
 require("custom/delete_card")
 require("custom/flip_card")
 require("custom/import_csv")
+require("custom/suggest_word")
 import '../stylesheets/application'
