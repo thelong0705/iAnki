@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     post :import, on: :collection
   end
   resources :study_sessions, only: [:show, :update]
+  post '/cards/search', to: 'cards#search'
 end

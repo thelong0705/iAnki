@@ -1,0 +1,6 @@
+$("#<%= @card_row_id %>").find(".suggest-answer").html(`
+    <span class="btn btn-outline-primary mt-2">
+        <%= @card.answer %>
+    </span>
+`)
+$("#<%= @card_row_id %>").find(".suggest-answer").show();
