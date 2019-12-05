@@ -1,7 +1,7 @@
 $("#<%= @card_row_id %>").find(".suggest-answer").html(`
-  <% @cards.each do |card| %>
+  <% @suggest_word.each do |word| %>
     <button class="btn btn-outline-primary mt-2 suggest-word">
-        <%= card.answer %>
+        <%= word %>
     </button>
   <% end %>
 `)

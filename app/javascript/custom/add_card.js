@@ -6,10 +6,13 @@ $(document).ready(function () {
             <div class="form-group">
                 <div class="row card-form-row" id="${unique_id}">
                     <div class="col-6">
-                        <input class="form-control" placeholder="Question" type="text" name="deck[cards_attributes][${unique_id}][question]">
+                        <input class="form-control input-question" placeholder="Question" 
+                        type="text" name="deck[cards_attributes][${unique_id}][question]" autocomplete: "off">
                     </div>
                     <div class="col-5">
-                        <input class="form-control" placeholder="Answer" type="text" name="deck[cards_attributes][${unique_id}][answer]">
+                        <input class="form-control input-answer" placeholder="Answer" 
+                        type="text" name="deck[cards_attributes][${unique_id}][answer]" autocomplete: "off">
+                        <div class="suggest-answer" style="display: none;"></div>
                      </div>
                     <div class="col-1 float-right">
                         <input type="hidden" value="false" name="deck[cards_attributes][${unique_id}][_destroy]">
