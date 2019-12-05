@@ -2,6 +2,7 @@ jp:
   login: "ログイン"
   sign_up: "新規登録"
   search: "検索"
+  enter_key_word: "キーワード入力"
   create: "作成"
   get_started: "学習を始めましょう"
   terms: "用語"

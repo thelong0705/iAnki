@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/edit'
   root 'landing_pages#index'
   get '/:locale', to: 'landing_pages#index', constraints: { locale: /jp/ }, as: 'landing'
+  get 'search/', to: "search#index", as: "search"
+  get 'password_resets/new'
+  get 'password_resets/edit'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/home', to: 'home_pages#index', as: 'home'

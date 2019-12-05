@@ -2,6 +2,7 @@ en:
   login: "Login"
   sign_up: "Sign up"
   search: "Search"
+  enter_key_word: "Enter keyword"
   create: "Create"
   get_started: "Get Started"
   terms: "terms"
