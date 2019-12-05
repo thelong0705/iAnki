@@ -14,7 +14,6 @@ $(document).on('turbolinks:load', function () {
 
     $(document).on("focusout", ".input-answer", function (e) {
         $(this).data('notFirstFocused', false);
-        $(this).siblings(".suggest-answer").hide();
     });
 
 

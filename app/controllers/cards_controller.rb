@@ -5,7 +5,6 @@ class CardsController < ApplicationController
 
     @suggest_word = cards_same_question.reduce([]) { |a, card| a.push(card.answer)}
     cards_same_answer.reduce(@suggest_word) { |a, card| a.push(card.question)}
-    p @suggest_word
     @suggest_word = @suggest_word.uniq
     @card_row_id = params[:id]
     respond_to do |format|

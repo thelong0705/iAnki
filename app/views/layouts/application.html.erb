@@ -24,8 +24,10 @@
   </div>
 </div>
 <%= render 'shared/footer' %>
-<%= render 'users/sign_up_modal' %>
-<%= render 'sessions/login_modal' %>
+<% unless current_user %>
+  <%= render 'users/sign_up_modal' %>
+  <%= render 'sessions/login_modal' %>
+<% end %>
 </body>
 </html>
 

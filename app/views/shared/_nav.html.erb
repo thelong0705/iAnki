@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 4rem">
   <div class="container">
-    <%= link_to "iAnki", root_url, class: "navbar-brand" %>
+    <% if current_user %>
+      <%= link_to "iAnki", home_path, class: "navbar-brand" %>
+    <% else %>
+      <%= link_to "iAnki", root_url, class: "navbar-brand" %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
