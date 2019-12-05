@@ -4,8 +4,9 @@ $(document).on('turbolinks:load', function(){
         $("#file").click();
     });
 
-    document.getElementById("file").onchange = function() {
+    $(document).on("change", "#file", function () {
         const form = document.getElementById("uploadFile");
         form.dispatchEvent(new Event('submit', {bubbles: true}));
-    };
+    })
+
 });
