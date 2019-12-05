@@ -1,8 +1,18 @@
-<div class="col-md-4">
-  <div class="card mb-3" >
-    <div class="card-body">
-      <p><%= card.question %></p>
-      <p><%= card.answer %></p>
-    </div>
-  </div>
+<div class="col-md-12">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col" style="width: 35%">Question</th>
+      <th scope="col" style="width: 35%">Answer</th>
+      <th scope="col" style="width: 30%">Deck</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= card.question %></td>
+      <td><%= card.answer %></td>
+      <td><%= card.deck.name %></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
