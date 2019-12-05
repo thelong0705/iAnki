@@ -22,7 +22,16 @@
       </ul>
       <nav class="nav">
         <% if current_user %>
-          <%= link_to t(:log_out),logout_path, method: :delete, class: "btn btn-primary"  %>
+          <%= user_image current_user, class: "rounded-circle", style: "width: 40px; height:40px;"%>
+          <div class="btn-group">
+            <button type="button" class="ml-1 btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.name %>
+            </button>
+            <div class="dropdown-menu">
+              <%= link_to t(:profile), user_path(current_user), class: "dropdown-item"  %>
+              <%= link_to t(:log_out),logout_path, method: :delete, class: "dropdown-item"  %>
+            </div>
+          </div>
         <% else %>
           <%= link_to '🇬🇧', root_path, class: "btn btn-primary", style: "font-size: 30px" %>
           <%= link_to '🇯🇵', landing_path(:jp), class: "btn btn-primary", style: "font-size: 30px" %>

@@ -8,6 +8,10 @@
     <%= f.select :locale, [['English', nil], %w(Japan jp)], {}, {:class => 'form-control' } %>
   </div>
   <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.submit t("update"), class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>

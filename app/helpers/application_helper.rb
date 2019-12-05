@@ -5,4 +5,12 @@ module ApplicationHelper
     html_options[:class] = "#{html_options[:class]} #{active_class}" if current_page?(options)
     link_to(name, options, html_options, &block)
   end
+
+  def user_image(user, options = {} )
+    if user.image.attached?
+      image_tag user.image, options
+    else
+      image_tag 'default_image.png', options
+    end
+  end
 end

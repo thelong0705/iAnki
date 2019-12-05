@@ -1,9 +1,21 @@
 <div class="col-md-4">
   <div class="card mb-3" >
     <div class="card-body">
-      <%= link_to user.name, user , class: "font-weight-bold card-title stretched-link" %>
-
-
+      <div class="row">
+        <div class="col-3">
+          <%= user_image user, class: "rounded-circle", style: "width: 64px; height: 64px;" %>
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col">
+          <%= link_to user.name, user , class: "font-weight-bold card-title stretched-link" %>
+          <p>
+            <%= user.decks.count %> sets
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
