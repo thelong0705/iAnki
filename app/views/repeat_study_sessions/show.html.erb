@@ -1,0 +1,14 @@
+<% if @card %>
+  <div class="flash-card-area">
+    <%= render "shared/flip_card" %>
+    <div class="row justify-content-center">
+      <%= form_with url: repeat_study_session_path(@deck), method: "patch", class: "mt-3" do |f| %>
+        <%= hidden_field_tag(:card_id, @card.id) %>
+        <%= f.button "Again", class:"btn-lg ", name: "commit", value: "0" %>
+        <%= f.button "Easy", class:"btn-lg btn-info", name: "commit", value: "5" %>
+        <%= f.button "Good", class:"btn-lg btn-primary", name: "commit", value: "4" %>
+        <%= f.button "Hard", class: "btn-lg btn-secondary ", name: "commit", value: "1" %>
+    <% end %>
+    </div>
+  </div>
+<% end %>

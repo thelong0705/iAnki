@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_022123) do
+ActiveRecord::Schema.define(version: 2019_12_06_061115) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(version: 2019_12_03_022123) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_remembered", default: false
+    t.integer "repetitions", default: 0
+    t.integer "interval", default: 1
+    t.float "easiness", default: 2.5
+    t.date "practice_day"
+    t.date "learn_at"
     t.index ["deck_id"], name: "index_cards_on_deck_id"
   end
 

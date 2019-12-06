@@ -1,3 +1,6 @@
+Card.delete_all
+Deck.delete_all
+
 10.times do
   User.create!(
       {
