@@ -1,14 +1,40 @@
+<div class="all-learn-area" style="<%= 'display: none' if @card %>">
+  <div class="card text-center" style="height: 300px">
+    <div class="card-header">
+      <%= t "congratulations" %>
+    </div>
+    <div class="card-body mt-lg-5">
+      <h5 class="card-title">
+        <%= t "You have learnt all cards for today" %>
+      </h5>
+      <%= link_to "Back to home", home_path, class: "btn-lg btn-primary" %>
+    </div>
+  </div>
+</div>
+
 <% if @card %>
   <div class="flash-card-area">
     <%= render "shared/flip_card" %>
     <div class="row justify-content-center">
       <%= form_with url: repeat_study_session_path(@deck), method: "patch", class: "mt-3" do |f| %>
         <%= hidden_field_tag(:card_id, @card.id) %>
-        <%= f.button "Again", class:"btn-lg ", name: "commit", value: "0" %>
-        <%= f.button "Easy", class:"btn-lg btn-info", name: "commit", value: "5" %>
-        <%= f.button "Good", class:"btn-lg btn-primary", name: "commit", value: "4" %>
-        <%= f.button "Hard", class: "btn-lg btn-secondary ", name: "commit", value: "1" %>
-    <% end %>
+        <table class="table table-borderless table-button">
+          <tbody>
+          <tr>
+            <td><%=@card.get_interval(0) %></td>
+            <td><%=@card.get_interval(1) %></td>
+<!--            <td><%#=@card.get_interval(4) %></td>-->
+<!--            <td><%#=@card.get_interval(5) %></td>-->
+          </tr>
+          <tr>
+            <td><%= f.button "Again", class: "btn-lg ml-2", name: "commit", value: "0" %></td>
+<!--            <td><%#= f.button "Hard", class: "btn-lg btn-secondary ml-2", name: "commit", value: "1" %></td>-->
+            <td><%= f.button "Good", class: "btn-lg btn-primary ml-2", name: "commit", value: "1" %></td>
+<!--            <td><%#= f.button "Easy", class: "btn-lg btn-info ml-2", name: "commit", value: "5" %></td>-->
+          </tr>
+          </tbody>
+        </table>
+      <% end %>
     </div>
   </div>
 <% end %>
