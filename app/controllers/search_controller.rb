@@ -1,11 +1,11 @@
 class SearchController < ApplicationController
   def index
     if params[:type] == "users"
-      @results = User.search(params[:keyword])
+      @results = User.search(params[:query])
     elsif params[:type] == "cards"
-      @results = Card.search(params[:keyword])
+      @results = Card.search(params[:query])
     else
-      @results = Deck.search(params[:keyword])
+      @results = Deck.search(params[:query])
     end
   end
 end
