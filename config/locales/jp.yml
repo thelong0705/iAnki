@@ -22,7 +22,7 @@ jp:
   forgot_password: "パスワードを忘れた"
   name: 名前
   password_confirmation: 確認パスワード
-  check your email: "確認メールを送りしました。確認してください"
+  check_your_email: "確認メールを送りしました。確認してください"
   welcome: "ようこそ"
   create_set_prompt: "セットを作成しましょう！"
   create_set: "セット作成"
@@ -87,4 +87,4 @@ jp:
   congratulations: "おめでとうございます！"
   have_learnt_all: "お疲れ様でした。全部勉強した"
   update: "編集"
-
+  unactivated_email: "このメールは確認されていません"

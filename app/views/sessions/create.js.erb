@@ -1,6 +1,3 @@
-<% if @user %>
-$("#session_password").addClass("is-invalid")
-$("#session_email").removeClass("is-invalid")
-<% else %>
-$("#session_email").addClass("is-invalid")
-<% end %>
+$(".is-invalid").removeClass("is-invalid");
+$(`#session_<%= @errors[:field] %>`).addClass("is-invalid");
+$(`#session_<%= @errors[:field] %>`).siblings(".invalid-feedback").html("<%= @errors[:message] %>");

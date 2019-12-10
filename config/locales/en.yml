@@ -23,8 +23,8 @@ en:
   home: "Home"
   forgot_password: "Forgot password"
   name: "Name"
-  password_confimation: "Password confirmation"
-  check your email: "Please check your email to finish registration"
+  password_confirmation: "Password confirmation"
+  check_your_email: "Please check your email to finish registration"
   welcome: "Welcome"
   create_set_prompt: "How about creating a study set"
   create_set: "Create set"
@@ -46,3 +46,4 @@ en:
   activerecord:
     models:
       deck: "set"
+  unactivated_email: "This email is unactivated"

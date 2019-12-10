@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      flash.now[:success] = t 'check your email'
+      flash.now[:success] = t 'check_your_email'
     end
     respond_to do |format|
       format.js
