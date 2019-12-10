@@ -35,7 +35,7 @@
         <% else %>
           <%= link_to '🇬🇧', root_path, class: "btn btn-primary", style: "font-size: 30px" %>
           <%= link_to '🇯🇵', landing_path(:jp), class: "btn btn-primary", style: "font-size: 30px" %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+          <button type="button" id="buttonLoginModal" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
             <%= t :login %>
           </button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
