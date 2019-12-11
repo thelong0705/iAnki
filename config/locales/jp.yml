@@ -20,8 +20,8 @@ jp:
   settings: "設定"
   home: "ホーム"
   forgot_password: "パスワードを忘れた"
-  name: 名前
-  password_confirmation: 確認パスワード
+  name: "名前"
+  password_confirmation: "確認パスワード"
   check_your_email: "確認メールを送りしました。確認してください"
   welcome: "ようこそ"
   create_set_prompt: "セットを作成しましょう！"
