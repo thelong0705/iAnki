@@ -21,16 +21,12 @@
         <table class="table table-borderless table-button">
           <tbody>
           <tr>
-            <td><%=@card.get_interval(0) %></td>
-            <td><%=@card.get_interval(1) %></td>
-<!--            <td><%#=@card.get_interval(4) %></td>-->
-<!--            <td><%#=@card.get_interval(5) %></td>-->
+            <td><%=@card.get_interval(0) %> Later</td>
+            <td><%=@card.get_interval(1) %> Days</td>
           </tr>
           <tr>
             <td><%= f.button "Again", class: "btn-lg ml-2", name: "commit", value: "0" %></td>
-<!--            <td><%#= f.button "Hard", class: "btn-lg btn-secondary ml-2", name: "commit", value: "1" %></td>-->
             <td><%= f.button "Good", class: "btn-lg btn-primary ml-2", name: "commit", value: "1" %></td>
-<!--            <td><%#= f.button "Easy", class: "btn-lg btn-info ml-2", name: "commit", value: "5" %></td>-->
           </tr>
           </tbody>
         </table>
