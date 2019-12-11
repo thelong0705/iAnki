@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user.locale = @user.locale.presence
 
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      UserMailer.account_activation(@user, @user.activation_token).deliver_later
       flash.now[:success] = t 'check_your_email'
     end
     respond_to do |format|
