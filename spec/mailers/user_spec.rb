@@ -19,12 +19,40 @@ RSpec.describe UserMailer, type: :mailer do
     }.to change { ActionMailer::Base.deliveries.size }.by(1)
   end
 
-  it 'account activation email is sent to the right user' do
-    perform_enqueued_jobs do
-      UserMailer.account_activation(user, user.activation_token).deliver_later
-    end
+  [:en, :jp].each do |locale|
+    context "after sending email" do
+      let(:mail) {
+        user.locale = locale
+        perform_enqueued_jobs do
+          UserMailer.account_activation(user, user.activation_token).deliver_later
+        end
+        ActionMailer::Base.deliveries.last
+      }
 
-    mail = ActionMailer::Base.deliveries.last
-    expect(mail.to[0]).to eq user.email
+      before do
+        I18n.locale = user.locale
+      end
+
+      it 'account activation email is sent to the send right user' do
+        expect(mail.to[0]).to eq user.email
+      end
+
+      it 'renders the subject' do
+        expect(mail.subject).to eq(I18n.t(:account_activation))
+      end
+
+      it 'renders the name correctly' do
+        expect(mail.body.encoded).to match(user.name)
+      end
+
+      it 'renders activation token correctly' do
+        expect(mail.body.encoded).to match(user.activation_token)
+      end
+
+      it 'renders body correctly' do
+        expect(mail.body.encoded).to match(I18n.t(:email_welcome))
+      end
+    end
   end
+
 end
