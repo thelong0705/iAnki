@@ -47,3 +47,6 @@ en:
     models:
       deck: "set"
   unactivated_email: "This email is unactivated"
+  account_activation: "Account activation"
+  hello: "hello"
+  email_welcome: "Welcome to the iAnki! Click on the link below to activate your account:"

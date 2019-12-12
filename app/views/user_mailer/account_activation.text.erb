@@ -1,5 +1,5 @@
-Hi <%= @user.name %>,
-
-Welcome to the Sample App! Click on the link below to activate your account:
-
+iAnki
+<%= "#{t(:hello)} #{@user.name}" %>
+<%= t(:email_welcome) %>
 <%= edit_account_activation_url(@activation_token, email: @user.email) %>
+

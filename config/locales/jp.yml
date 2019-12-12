@@ -88,3 +88,6 @@ jp:
   have_learnt_all: "お疲れ様でした。全部勉強した"
   update: "編集"
   unactivated_email: "このメールは確認されていません"
+  account_activation: "アカウントを有効にする"
+  hello: "こんにちは"
+  email_welcome: "ようこそ！アカウントを有効にする、以下のリンクをクリックしてください"
