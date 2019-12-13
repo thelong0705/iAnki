@@ -56,3 +56,4 @@ en:
   password_reset: "Reset password"
   password_reset_expires: "This link will expires in 2 hours"
   send_email: "Send email"
+  email_not_found: "We can not find your email"

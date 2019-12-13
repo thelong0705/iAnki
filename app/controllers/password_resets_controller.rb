@@ -11,9 +11,14 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest
       UserMailer.password_reset(@user).deliver_now
-      redirect_to root_url
+      flash.now[:success] = t 'check_your_email'
+      redirect_url = I18n.locale == I18n.default_locale ? root_url : landing_url(:jp)
+      redirect_to redirect_url
     else
-      render 'new'
+      flash.now[:error] = t 'email_not_found'
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

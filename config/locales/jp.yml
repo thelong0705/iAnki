@@ -97,3 +97,4 @@ jp:
   password_reset: "パスワードをリセットする"
   password_reset_expires: "このリンクは２時間後で無効にする"
   send_email: "送信"
+  email_not_found: "メールを見つけませんでした"
