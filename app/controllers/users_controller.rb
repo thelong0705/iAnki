@@ -16,7 +16,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.locale = @user.locale.presence
 
     if @user.save
       UserMailer.account_activation(@user, @user.activation_token).deliver_later

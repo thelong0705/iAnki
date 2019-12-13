@@ -28,7 +28,7 @@
             <%= f.password_field :password_confirmation, class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.hidden_field :locale, value: params[:locale] %>
+            <%= f.hidden_field :locale, value: params[:locale] ||= 'en'  %>
           </div>
         </div>
         <div class="modal-footer">
