@@ -12,7 +12,7 @@ class PasswordResetsController < ApplicationController
       @user.create_reset_digest
       redirect_url = I18n.locale == I18n.default_locale ? root_url : landing_url(:jp)
       flash[:success] = t 'check_your_email'
-      UserMailer.password_reset(@user).deliver_later
+      UserMailer.password_reset(@user, @user.reset_token).deliver_later
       redirect_to redirect_url
     else
       flash.now[:error] = t 'email_not_found'

@@ -7,8 +7,9 @@ class UserMailer < ApplicationMailer
   end
 
 
-  def password_reset(user)
+  def password_reset(user, reset_token)
     @user = user
+    @reset_token = reset_token
     I18n.locale = @user.locale
     mail to: user.email, subject: I18n.t(:password_reset_subject)
   end
