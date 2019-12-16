@@ -33,7 +33,7 @@ $(document).ready(function () {
         addNewRow()
     });
 
-    $(document).on("keydown", ".card-form-row input:last", e => {
+    $(document).on("keydown", ".card-form-row .input-answer:last", e => {
         let code = e.keyCode || e.which;
         if (code === 9) {
             e.preventDefault();

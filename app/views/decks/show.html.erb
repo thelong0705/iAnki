@@ -15,7 +15,6 @@
     <th scope="col">#</th>
     <th scope="col"><%= t "question" %></th>
     <th scope="col"><%= t "answer" %></th>
-    <th scope="col"></th>
   </tr>
   </thead>
   <tbody>
@@ -24,14 +23,6 @@
       <th scope="row"><%= index +1 %></th>
       <td><%= card.question %></td>
       <td><%= card.answer %></td>
-      <td>
-        <button class="btn-sm btn-secondary">
-          <i class="fas fa-edit"></i>
-        </button>
-        <button class="btn-sm btn-danger">
-          <i class="fas fa-trash"></i>
-        </button>
-      </td>
     </tr>
   <% end %>
   </tbody>
