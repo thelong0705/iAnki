@@ -1,4 +1,4 @@
-<%= form_with model: @user, local: true, url: password_reset_path(params[:id]), class: "mx-auto mt-lg-5 my-auto" do |f|  %>
+<%= form_with model: @user, url: password_reset_path(params[:id]), class: "mx-auto mt-lg-5 my-auto" do |f|  %>
   <h1 class="mt-lg-5 mb-5">
     <%= t(:update_your_password) %>
   </h1>

@@ -11,7 +11,7 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest
       redirect_url = I18n.locale == I18n.default_locale ? root_url : landing_url(:jp)
-      flash[:success] = t 'check_your_email'
+      flash[:info] = t 'check_your_password_email'
       UserMailer.password_reset(@user, @user.reset_token).deliver_later
       redirect_to redirect_url
     else
@@ -26,13 +26,20 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
+    I18n.locale = @user.locale
     if params[:user][:password].empty?
-      render 'edit'
+      respond_to do |format|
+        flash.now[:error] = t(:password_cant_be_blank)
+        format.js
+      end
     elsif @user.update_attributes(user_params) 
       log_in @user
       redirect_to @user
     else
-      render 'edit'
+      respond_to do |format|
+        flash.now[:error] = @user.errors.full_messages.first
+        format.js
+      end
     end
   end
 
@@ -47,9 +54,15 @@ class PasswordResetsController < ApplicationController
     end
 
     def valid_user
-      unless (@user && @user.activated? && @user.authenticated?(:reset, params[:id]))
-        redirect_to root_url
+      if not @user
+        flash[:error] = t 'email_not_found'
+      elsif not @user.activated?
+        flash[:error] = t 'not_activated_user'
+      elsif not @user.authenticated?(:reset, params[:id])
+        flash[:error] = t 'wrong_reset_token'
       end
+      redirect_url = params[:locale] == I18n.default_locale ? root_url : landing_url(:jp)
+      redirect_to redirect_url if flash[:error]
     end
 
     def check_expiration

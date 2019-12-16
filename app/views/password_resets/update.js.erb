@@ -1,0 +1,6 @@
+<% unless flash.empty? %>
+<% key, value = flash.first %>
+$('#toastHeader').text('<%= t(key) %>');
+$('#toastBody').text('<%= value %>');
+$('.toast').toast('show');
+<% end %>
