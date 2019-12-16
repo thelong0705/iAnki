@@ -23,6 +23,10 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
+    if current_user
+      flash[:error] = t(:you_are_logged_in)
+      redirect_to home_url
+    end
   end
 
   def update
@@ -34,7 +38,8 @@ class PasswordResetsController < ApplicationController
       end
     elsif @user.update_attributes(user_params) 
       log_in @user
-      redirect_to @user
+      flash[:info] = t(:update_password_success)
+      redirect_to home_url
     else
       respond_to do |format|
         flash.now[:error] = @user.errors.full_messages.first

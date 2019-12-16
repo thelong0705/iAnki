@@ -1,17 +1,43 @@
-<%= form_with model: @user do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
+<div class="card bg-light">
+  <div class="card-body">
+    <%= form_with model: @user do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :locale, t(:locale) %>
+        <%= f.select :locale, [['English', nil], %w(日本語 jp)], {}, {:class => 'form-control' } %>
+      </div>
+      <div class="form-group">
+        <%= f.label :image, t(:image) %>
+        <br>
+        <button class="btn btn-secondary" id="uploadUserFile">
+          <%= t(:upload_file) %>
+        </button>
+        <span id="uploadFileHelperText">
+          <%= t(:no_file_chosen) %>
+        </span>
+        <div style="display: none">
+          <%= f.file_field :image %>
+        </div>
+      </div>
+      <%= f.submit t("update"), class: "btn btn-primary" %>
+    <% end %>
   </div>
-  <div class="form-group">
-    <%= f.label :locale %>
-    <%= f.select :locale, [['English', nil], %w(Japan jp)], {}, {:class => 'form-control' } %>
-  </div>
-  <div class="form-group">
-    <%= f.label :image %>
-    <br>
-    <%= f.file_field :image %>
-  </div>
-  <%= f.submit t("update"), class: "btn btn-lg btn-primary" %>
-<% end %>
+</div>
+
+<script>
+    $(document).on('turbolinks:load', function(){
+        $( "#uploadUserFile" ).click(function(e) {
+            e.preventDefault();
+            $("#user_image").click();
+        });
+
+        $(document).on("change", "#user_image", function () {
+            let filename = document.getElementById("user_image").files[0].name;;
+            $("#uploadFileHelperText").text(filename)
+        })
+    });
+</script>
 
