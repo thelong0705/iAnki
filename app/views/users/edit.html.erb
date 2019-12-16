@@ -1,3 +1,5 @@
+<h3><%= t(:basic_settings) %></h3>
+<hr/>
 <div class="card bg-light">
   <div class="card-body">
     <%= form_with model: @user do |f| %>
@@ -27,17 +29,27 @@
   </div>
 </div>
 
-<script>
-    $(document).on('turbolinks:load', function(){
-        $( "#uploadUserFile" ).click(function(e) {
-            e.preventDefault();
-            $("#user_image").click();
-        });
-
-        $(document).on("change", "#user_image", function () {
-            let filename = document.getElementById("user_image").files[0].name;;
-            $("#uploadFileHelperText").text(filename)
-        })
-    });
-</script>
-
+<h3 class="mt-lg-5">
+  <%= t(:update_your_password) %>
+</h3>
+<hr/>
+<div class="card bg-light ">
+  <div class="card-body">
+    <%= form_with url: password_change_create_path, class: "mx-auto my-auto" do |f|  %>
+      <%= hidden_field_tag :id, current_user.id %>
+      <div class="form-group">
+        <%= f.label :current_password, t(:current_password) %>
+        <%= f.password_field :current_password, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, t(:new_password) %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, t(:password_confirmation) %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      <%= f.submit t(:update) , class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

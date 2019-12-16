@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :study_sessions, only: [:show, :update]
   resources :repeat_study_sessions, only: [:show, :update]
   post '/cards/search', to: 'cards#search'
+  post 'password_change/create'
 end

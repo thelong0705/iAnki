@@ -74,3 +74,7 @@ en:
   image: "Image"
   upload_file: "Upload file"
   no_file_chosen: "No file chosen"
+  current_password: "Current password"
+  new_password: "New password"
+  wrong_current_password: "Wrong current password"
+  basic_settings: "Basic settings"
