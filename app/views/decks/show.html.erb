@@ -50,7 +50,7 @@
   </thead>
   <tbody>
   <% first_id = @deck.cards.first.id - 1 %>
-  <% @cards.each_with_index do |card| %>
+  <% @cards.each do |card| %>
     <tr>
       <th scope="row"><%= card.id - first_id %></th>
       <td><%= card.question %></td>

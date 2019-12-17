@@ -1,13 +1,8 @@
-<div class="col-md-4">
-  <div class="card mb-3" >
-    <div class="card-body">
-      <%= link_to deck.name, deck, class: "font-weight-bold card-title stretched-link" %>
-      <p class="card-text">
-        <%= deck.cards.size %> <%= t "terms" %>
-      </p>
-      <p class="card-text mt-5"><small class="text-muted">
-        <%= "#{time_ago_in_words(deck.created_at)} #{t 'ago'} "%> </small>
-      </p>
-    </div>
-  </div>
-</div>
+<tr>
+  <td>
+    <%= link_to deck.name, deck, class: "font-weight-bold" %>
+  </td>
+
+  <td><%= deck.cards.count %></td>
+  <td><%= deck.created_at.strftime("%Y/%m/%d") %></td>
+</tr>

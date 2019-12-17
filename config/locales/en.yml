@@ -88,3 +88,5 @@ en:
   export_csv: "Export CSV"
   action: "Action"
   information: "Information"
+  created_at: "Create at"
+  created_recently_sets: "Created recently sets"

@@ -1,7 +1,19 @@
 <div class="row">
   <%= render partial: "user", locals: { user: @user } %>
 </div>
+
+<h3><%= t :created_recently_sets %></h3>
 <hr/>
-<div class="row mt-1">
+
+<table class="table table-bordered mt-3 bg-light">
+  <thead>
+  <tr>
+    <th scope="col"><%= t :set_name %></th>
+    <th scope="col"><%= t :number_of_cards %></th>
+    <th scope="col"><%= t :created_at %></th>
+  </tr>
+  </thead>
+  <tbody>
   <%= render @user.decks %>
-</div>
+  </tbody>
+</table>

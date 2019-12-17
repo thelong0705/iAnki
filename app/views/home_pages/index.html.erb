@@ -1,24 +1,17 @@
-<div class="card bg-light">
-  <div class="card-body">
-    <h5 class="card-title">
-      <%= t 'welcome' %> !
-    </h5>
-    <p class="card-text">
-      <%= t 'create_set_prompt' %>
-    </p>
-    <%= link_to t('create_set'), new_deck_path, class: "btn btn-primary" %>
-  </div>
-</div>
+<h3>
+  <%= t :created_recently_sets %>
+</h3>
+<hr/>
 
-<div class="row mt-3">
-  <div class="col">
-    <h5>
-      <%= t 'recent' %>
-    </h5>
-  </div>
-</div>
-
-<div class="row mt-1">
-  <%= render @decks %>
-</div>
-
+<table class="table table-bordered mt-3 bg-light">
+  <thead>
+  <tr>
+    <th scope="col"><%= t :set_name %></th>
+    <th scope="col"><%= t :number_of_cards %></th>
+    <th scope="col"><%= t :created_at %></th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render @decks %>
+  </tbody>
+</table>
