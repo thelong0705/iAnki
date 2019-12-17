@@ -47,6 +47,13 @@ class DecksController < ApplicationController
     end
   end
 
+  def destroy
+    @deck = Deck.find(params[:id])
+    @deck.destroy
+    flash[:info] = t(:delete_successfully)
+    redirect_to home_url
+  end
+
   private
 
   def deck_params
