@@ -61,5 +61,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'searchkick'
 gem 'sidekiq', '5.2.7'
-
-
+gem 'kaminari'

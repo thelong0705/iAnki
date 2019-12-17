@@ -15,7 +15,7 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
-
+    @cards = @deck.cards.page(params[:page]).per(1)
     respond_to do |format|
       format.html
       format.csv do
@@ -57,6 +57,6 @@ class DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:id, :name, cards_attributes: [:id, :question, :answer, :_destroy])
+    params.require(:deck).permit(:id, :name, :page, cards_attributes: [:id, :question, :answer, :_destroy])
   end
 end

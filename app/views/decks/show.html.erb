@@ -1,47 +1,46 @@
 <h3><%= t(:information) %></h3>
 <hr/>
-<div class="card bg-light ">
-  <div class="card-body">
-    <table class="table table-bordered bg-white">
-      <tbody>
-      <tr>
-        <td><%= t(:set_name)  %></td>
-        <td><%= @deck.name %></td>
-      </tr>
-      <tr>
-        <td><%= t(:number_of_cards) %></td>
-        <td><%= @deck.cards.count %></td>
-      </tr>
-      <tr>
-        <td><%= t(:creator) %></td>
-        <td><%= @deck.user.name %></td>
-      </tr>
-      <tr>
-        <td><%= t(:study) %></td>
-        <td>
-          <%= link_to t(:study_this_set), study_session_path(@deck), class: "btn btn-primary" %>
-          <%= link_to t(:daily_study), repeat_study_session_path(@deck), class: "btn btn-secondary" %>
-        </td>
-      </tr>
-      <tr>
-        <td><%= t(:action) %></td>
-        <td>
-          <%= link_to t(:edit_set), edit_deck_path, class: "btn btn-primary"  %>
-          <%= link_to t(:export_csv), deck_path(@deck, format: :csv ), class: "btn btn-secondary"%>
-          <%= link_to t(:destroy), deck_path, method: :delete,
-                      data: { confirm: t(:are_you_sure) }, class: "btn btn-danger"   %>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+
+<table class="table table-bordered bg-light">
+  <tbody>
+  <tr>
+    <td><%= t(:set_name) %></td>
+    <td><%= @deck.name %></td>
+  </tr>
+  <tr>
+    <td><%= t(:number_of_cards) %></td>
+    <td><%= @deck.cards.count %></td>
+  </tr>
+  <tr>
+    <td><%= t(:creator) %></td>
+    <td><%= @deck.user.name %></td>
+  </tr>
+  <tr>
+    <td><%= t(:study) %></td>
+    <td>
+      <%= link_to t(:study_this_set), study_session_path(@deck), class: "btn btn-primary" %>
+      <%= link_to t(:daily_study), repeat_study_session_path(@deck), class: "btn btn-secondary" %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= t(:action) %></td>
+    <td>
+      <%= link_to t(:edit_set), edit_deck_path, class: "btn btn-primary" %>
+      <%= link_to t(:export_csv), deck_path(@deck, format: :csv), class: "btn btn-secondary" %>
+      <%= link_to t(:destroy), deck_path, method: :delete,
+                  data: {confirm: t(:are_you_sure)}, class: "btn btn-danger" %>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
 
-<h3 class="mt-5">
+<h3 class="mt-lg-5">
   <%= t("terms_in_this_set") %>
 </h3>
-<table class="table mt-3">
+<hr/>
+
+<table class="table table-bordered mt-3 bg-light">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -50,12 +49,18 @@
   </tr>
   </thead>
   <tbody>
-  <% @deck.cards.each_with_index do |card, index| %>
+  <% first_id = @deck.cards.first.id - 1 %>
+  <% @cards.each_with_index do |card| %>
     <tr>
-      <th scope="row"><%= index +1 %></th>
+      <th scope="row"><%= card.id - first_id %></th>
       <td><%= card.question %></td>
       <td><%= card.answer %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+<div class="mt-5">
+  <%= paginate @cards %>
+</div>
+
+
