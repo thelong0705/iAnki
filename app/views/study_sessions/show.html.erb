@@ -15,12 +15,49 @@
   </div>
 </div>
 <% if @card %>
+
   <div class="flash-card-area">
     <%= render "shared/flip_card" %>
     <%= form_with url: study_session_path(@deck), method: "patch", class: "mt-3" do |f| %>
       <%= hidden_field_tag(:card_id, @card.id) %>
-      <%= f.button t("study_again"), class:"btn-lg btn-primary", name: "commit", value: "study_again" %>
-      <%= f.button t("got_it"), class: "btn-lg btn-primary float-right", name: "commit", value: "got_it" %>
+      <div class="row">
+        <div class="col-2">
+          <%= f.button t("study_again"), class: "btn-lg btn-primary", name: "commit", value: "study_again" %>
+        </div>
+        <div class="col-8">
+          <table class="table table-center">
+            <thead>
+            <tr>
+              <th>
+                <%= t(:remaining) %>
+              </th>
+              <th>
+                <%= t(:learning) %>
+              </th>
+              <th>
+                <%= t(:remembered) %>
+              </th>
+            </tr>
+            </thead>
+            <tbody class="learning-progress">
+            <tr>
+              <td>
+                <%= @study_session.study_session_cards.not_have_showed.count  %>
+              </td>
+              <td>
+                <%= @study_session.study_session_cards.have_showed.count  %>
+              </td>
+              <td>
+                <%= @deck.cards.count - @study_session.study_session_cards.count %>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-2">
+          <%= f.button t("got_it"), class: "btn-lg btn-primary", name: "commit", value: "got_it" %>
+        </div>
+      </div>
     <% end %>
   </div>
 <% end %>

@@ -138,3 +138,6 @@ jp:
       truncate: "&hellip;"
   created_at: "作成日付"
   created_recently_sets: "最近作成したセット"
+  remaining: "残り"
+  learning: "勉強中"
+  remembered: "覚えた"

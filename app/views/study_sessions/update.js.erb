@@ -5,4 +5,17 @@
   $(".question-area").text("<%= @card.question %>");
   $(".answer-area").text("<%= @card.answer %>");
   $("#card_id").val(<%= @card.id %>)
+  $(".learning-progress").html(
+      `
+        <td>
+           <%= @study_session.study_session_cards.not_have_showed.count  %>
+        </td>
+        <td>
+          <%= @study_session.study_session_cards.have_showed.count  %>
+        </td>
+        <td>
+          <%= @deck.cards.count - @study_session.study_session_cards.count %>
+        </td>
+      `
+  )
 <% end %>
