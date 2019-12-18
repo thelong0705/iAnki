@@ -2,11 +2,18 @@ class StudySessionsController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
-    user_id = current_user.id
-    @study_session = StudySession.find_by(deck_id: @deck.id, user_id: user_id)
+
+    if current_user
+      unique_id = current_user.id
+    else
+      session[:unique_id] ||= Time.now.to_i
+      unique_id = session[:unique_id]
+    end
+
+    @study_session = StudySession.find_by(deck_id: @deck.id, unique_id: unique_id)
     unless @study_session
       now = Time.now
-      @study_session = StudySession.create(deck_id: @deck.id, user_id: user_id)
+      @study_session = StudySession.create(deck_id: @deck.id, unique_id: unique_id)
       array_to_insert = @deck.cards.reduce([]) do |array, card|
         array.push({study_session_id: @study_session.id, card_id: card.id, created_at: now, updated_at: now})
       end
@@ -18,8 +25,14 @@ class StudySessionsController < ApplicationController
 
   def update
     @deck = Deck.find(params[:id])
-    user_id = current_user.id
-    @study_session = StudySession.find_by(deck_id: @deck.id, user_id: user_id)
+
+    if current_user
+      unique_id = current_user.id
+    else
+      unique_id = session[:unique_id]
+    end
+
+    @study_session = StudySession.find_by(deck_id: @deck.id, unique_id: unique_id)
 
     if params[:commit] == 'study_again'
       @study_session.study_session_cards.find_by(card_id: params[:card_id]).update(is_showed: true)
