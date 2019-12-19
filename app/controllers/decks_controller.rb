@@ -57,6 +57,6 @@ class DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:id, :name, :page, cards_attributes: [:id, :question, :answer, :_destroy])
+    params.require(:deck).permit(:id, :name, :page, :is_public, cards_attributes: [:id, :question, :answer, :_destroy])
   end
 end

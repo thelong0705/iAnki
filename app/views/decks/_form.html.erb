@@ -2,10 +2,13 @@
   <% @deck_form = f %>
   <div class="form-group mt-3" id="firstRow">
     <div class="row">
-      <div class="col-6 mb-3">
+      <div class="col-4 mb-3">
         <%= f.text_field :name, class: "bottom-border-input", placeholder: t("name") %>
       </div>
-      <div class="col-6">
+      <div class="col-2">
+        <%= f.select :is_public, [[t(:public), true], [t(:only_me), false ]], {}, {:class => 'form-control' } %>
+      </div>
+      <div class="col-3">
         <button class="btn btn-primary" id="importCSV">Import CSV file</button>
       </div>
     </div>

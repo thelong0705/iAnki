@@ -5,7 +5,7 @@ class Deck < ApplicationRecord
                                 reject_if: :all_blank,
                                 allow_destroy: true
   searchkick
-
+  scope :is_public, -> { where(is_public: true) }
 
   def self.csv_attributes
     %w(question answer)
