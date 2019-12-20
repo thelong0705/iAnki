@@ -1,16 +1,48 @@
 
-<h3><%= t :created_recently_sets %></h3>
-<hr/>
+<!--<h3><%#= t :created_recently_sets %></h3>-->
+<!--<hr/>-->
 
-<table class="table table-bordered mt-3 bg-light">
-  <thead>
-  <tr>
-    <th scope="col"><%= t :set_name %></th>
-    <th scope="col"><%= t :number_of_cards %></th>
-    <th scope="col"><%= t :created_at %></th>
-  </tr>
-  </thead>
-  <tbody>
-  <%= render @user.decks %>
-  </tbody>
-</table>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+      <%= t :created_sets %>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+      <%= t :learning %>
+    </a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <table class="table table-bordered mt-3 bg-light">
+      <thead>
+      <tr>
+        <th scope="col"><%= t :set_name %></th>
+        <th scope="col"><%= t :number_of_cards %></th>
+        <th scope="col"><%= t :created_at %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @user.decks %>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <table class="table table-bordered mt-3 bg-light">
+      <thead>
+      <tr>
+        <th scope="col"><%= t :set_name %></th>
+        <th scope="col"><%= t :number_of_cards %></th>
+        <th scope="col"><%= t :created_at %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @learning_decks %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

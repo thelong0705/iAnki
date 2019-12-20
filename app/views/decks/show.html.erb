@@ -49,7 +49,7 @@
   </tr>
   </thead>
   <tbody>
-  <% first_id = @deck.cards.first.id - 1 %>
+  <% first_id = @deck.cards.first.id - 1 unless @deck.cards.blank? %>
   <% @cards.each do |card| %>
     <tr>
       <th scope="row"><%= card.id - first_id %></th>

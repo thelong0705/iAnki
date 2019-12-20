@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @learning_decks = Deck.where(id: StudySession.where(unique_id: @user.id).pluck(:deck_id))
   end
 
   def edit
