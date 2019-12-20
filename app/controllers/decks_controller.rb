@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   before_action :required_login, except: :show
-  before_action :check_auth, only: [:edit, :update, :import, :destroy]
+  before_action :check_auth, only: [:edit, :update, :destroy]
 
   def new
     @deck = Deck.new
