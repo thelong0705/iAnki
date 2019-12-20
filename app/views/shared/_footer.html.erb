@@ -1,4 +1,5 @@
-<% if current_user.nil? %>
+<% unless current_user %>
+  <hr/>
   <footer class="text-muted">
     <div class="container">
       <p>
