@@ -98,3 +98,6 @@ en:
   profile_picture: "Profile Picture"
   set: "Set"
   created_sets: "Created sets"
+  please_login: "Please login first"
+  warning: "Warning"
+  not_authenticated: "You can not perform this action"

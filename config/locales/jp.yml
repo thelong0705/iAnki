@@ -146,3 +146,6 @@ jp:
   profile_picture: "画像"
   set: "セット"
   created_sets: "作成したセット"
+  please_login: "ログインしてください"
+  warning: "警告"
+  not_authenticated: "このアクションは実行できません"

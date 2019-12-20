@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :required_login, except: [:show, :create]
+  before_action :check_auth, only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -31,5 +33,20 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :locale, :image)
+  end
+
+  def required_login
+    unless current_user
+      redirect_url = I18n.locale == I18n.default_locale ? root_url : landing_url(:jp)
+      flash[:warning] = t :please_login
+      redirect_to redirect_url
+    end
+  end
+
+  def check_auth
+    unless current_user.id == params[:id].to_i
+      flash[:warning] = t :not_authenticated
+      redirect_to home_url
+    end
   end
 end
