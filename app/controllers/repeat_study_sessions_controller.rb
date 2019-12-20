@@ -1,4 +1,6 @@
 class RepeatStudySessionsController < ApplicationController
+  before_action :required_login
+  before_action :check_auth
   before_action :find_deck
 
   def show
@@ -23,5 +25,13 @@ class RepeatStudySessionsController < ApplicationController
 
   def find_deck
     @deck = Deck.find(params[:id])
+  end
+
+  def check_auth
+    @deck = Deck.find(params[:id])
+    unless current_user == @deck.user
+      flash[:warning] = t :not_authenticated
+      redirect_to home_url
+    end
   end
 end

@@ -4,7 +4,7 @@
 <table class="table table-bordered bg-light">
   <tbody>
   <tr>
-    <td><%= t(:set_name) %></td>
+    <td style="width: 20%"><%= t(:set_name) %></td>
     <td><%= @deck.name %></td>
   </tr>
   <tr>
@@ -19,21 +19,24 @@
     <td><%= t(:study) %></td>
     <td>
       <%= link_to t(:study_this_set), study_session_path(@deck), class: "btn btn-primary" %>
-      <%= link_to t(:daily_study), repeat_study_session_path(@deck), class: "btn btn-secondary" %>
+      <% if current_user == @deck.user  %>
+        <%= link_to t(:daily_study), repeat_study_session_path(@deck), class: "btn btn-secondary" %>
+    <% end %>
     </td>
   </tr>
-  <tr>
-    <td><%= t(:action) %></td>
-    <td>
-      <%= link_to t(:edit_set), edit_deck_path, class: "btn btn-primary" %>
-      <%= link_to t(:export_csv), deck_path(@deck, format: :csv), class: "btn btn-secondary" %>
-      <%= link_to t(:destroy), deck_path, method: :delete,
-                  data: {confirm: t(:are_you_sure)}, class: "btn btn-danger" %>
-    </td>
-  </tr>
+  <% if current_user == @deck.user  %>
+    <tr>
+      <td><%= t(:action) %></td>
+      <td>
+        <%= link_to t(:edit_set), edit_deck_path, class: "btn btn-primary" %>
+        <%= link_to t(:export_csv), deck_path(@deck, format: :csv), class: "btn btn-secondary" %>
+        <%= link_to t(:destroy), deck_path, method: :delete,
+                    data: {confirm: t(:are_you_sure)}, class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
-
 
 <h3 class="mt-lg-5">
   <%= t("terms_in_this_set") %>
@@ -49,10 +52,9 @@
   </tr>
   </thead>
   <tbody>
-  <% first_id = @deck.cards.first.id - 1 unless @deck.cards.blank? %>
-  <% @cards.each do |card| %>
+  <% @cards.each_with_index do |card, index| %>
     <tr>
-      <th scope="row"><%= card.id - first_id %></th>
+      <th scope="row"><%= index %></th>
       <td><%= card.question %></td>
       <td><%= card.answer %></td>
     </tr>

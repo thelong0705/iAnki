@@ -63,13 +63,6 @@ class DecksController < ApplicationController
     params.require(:deck).permit(:id, :name, :page, :is_public, cards_attributes: [:id, :question, :answer, :_destroy])
   end
 
-  def required_login
-    unless current_user
-      redirect_url = I18n.locale == I18n.default_locale ? root_url : landing_url(:jp)
-      flash[:warning] = t :please_login
-      redirect_to redirect_url
-    end
-  end
 
   def check_auth
     @deck = Deck.find(params[:id])

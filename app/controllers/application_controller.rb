@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
     locale = I18n.default_locale if locale.blank?
     I18n.with_locale(locale, &action)
   end
+
+  def required_login
+    unless current_user
+      redirect_url = I18n.locale == I18n.default_locale ? root_url : landing_url(:jp)
+      flash[:warning] = t :please_login
+      redirect_to redirect_url
+    end
+  end
+
 end
