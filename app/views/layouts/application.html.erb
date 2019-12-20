@@ -15,7 +15,7 @@
 <%= render 'shared/toast' %>
 
 
-<div class="container mt-3 mb-3" style="min-height: 600px">
+<div class="<% unless controller.controller_name == "landing_pages"  %>container<%end%> mt-3 mb-3" style="min-height: 600px">
   <div class="row">
     <%= render 'shared/sidebar' %>
     <div class="col">

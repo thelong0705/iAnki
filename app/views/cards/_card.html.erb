@@ -1,18 +1,7 @@
-<div class="col-md-12">
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th scope="col" style="width: 35%">Question</th>
-      <th scope="col" style="width: 35%">Answer</th>
-      <th scope="col" style="width: 30%">Deck</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><%= card.question %></td>
-      <td><%= card.answer %></td>
-      <td><%= card.deck.name %></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+<tr>
+  <td><%= card.question %></td>
+  <td><%= card.answer %></td>
+  <td>
+    <%= link_to(card.deck.name, deck_path(card.deck)) %>
+  </td>
+</tr>

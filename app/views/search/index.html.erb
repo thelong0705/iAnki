@@ -1,4 +1,40 @@
-<div class="row mt-1">
-  <%= render @results %>
-</div>
-
+<% if params[:type] == 'users' %>
+  <table class="table table-center table-bordered mt-3 bg-light">
+    <thead>
+    <tr>
+      <th scope="col"><%= t :name %></th>
+      <th scope="col"><%= t :number_of_sets %></th>
+      <th scope="col"><%= t :profile_picture %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @results %>
+    </tbody>
+  </table>
+<% elsif params[:type] == 'cards' %>
+  <table class="table table-center table-bordered mt-3 bg-light">
+    <thead>
+    <tr>
+      <th scope="col"><%= t :question %></th>
+      <th scope="col"><%= t :answer %></th>
+      <th scope="col"><%= t :set_name %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @results %>
+    </tbody>
+  </table>
+<% else %>
+  <table class="table table-center table-bordered mt-3 bg-light">
+    <thead>
+    <tr>
+      <th scope="col"><%= t :set_name %></th>
+      <th scope="col"><%= t :number_of_cards %></th>
+      <th scope="col"><%= t :created_at %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @results %>
+    </tbody>
+  </table>
+<% end %>

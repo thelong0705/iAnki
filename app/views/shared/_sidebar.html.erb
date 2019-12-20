@@ -13,5 +13,16 @@
       <%= active_link_to t(:profile), user_path(current_user), class: "list-group-item list-group-item-action" %>
     </div>
   </div>
-<% end %>
+<% else %>
+  <% if current_page?(controller: "search", action: "index") %>
+    <div class="col-3">
 
+      <div class="list-group mb-5">
+        <%= active_link_to "Sets", search_path(query: params[:query]), class: "list-group-item list-group-item-action" %>
+        <%= active_link_to "Users", search_path(query: params[:query], :type => "users"), class: "list-group-item list-group-item-action" %>
+        <%= active_link_to "Cards", search_path(query: params[:query], :type => "cards"), class: "list-group-item list-group-item-action" %>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
