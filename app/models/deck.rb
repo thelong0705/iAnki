@@ -6,6 +6,7 @@ class Deck < ApplicationRecord
                                 allow_destroy: true
   searchkick
   scope :is_public, -> { where(is_public: true) }
+  scope :is_not_public, -> { where(is_public: false) }
 
   def self.csv_attributes
     %w(question answer)

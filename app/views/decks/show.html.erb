@@ -15,6 +15,12 @@
     <td><%= t(:creator) %></td>
     <td><%= @deck.user.name %></td>
   </tr>
+  <% if current_user == @deck.user  %>
+  <tr>
+    <td><%= t :public %></td>
+    <td><%= gen_public_string(@deck.is_public) %></td>
+  </tr>
+  <% end %>
   <tr>
     <td><%= t(:study) %></td>
     <td>

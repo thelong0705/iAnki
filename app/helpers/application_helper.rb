@@ -13,4 +13,8 @@ module ApplicationHelper
       image_tag 'default_image.png', options
     end
   end
+
+  def gen_public_string(is_public)
+    is_public ? t(:public) : t(:only_me)
+  end
 end

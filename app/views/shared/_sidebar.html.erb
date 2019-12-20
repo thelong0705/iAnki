@@ -16,7 +16,7 @@
           <%= @user.name %>
         </h5>
         <p class="card-text">
-          <%= @user.decks.count %> <%= t(:set) %>
+          <%= @user.decks.is_public.count %> <%= t(:public_sets) %>
           <% if current_user == @user %>
             <%= link_to t(:settings), edit_user_path(@user), class: "btn btn-primary float-right"  %>
           <% end %>

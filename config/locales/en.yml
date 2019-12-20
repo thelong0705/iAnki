@@ -101,3 +101,6 @@ en:
   please_login: "Please login first"
   warning: "Warning"
   not_authenticated: "You can not perform this action"
+  public_sets: "Public sets"
+  not_public_sets: "Non public sets"
+  no_decks_found: "We did not found any sets"

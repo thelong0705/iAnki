@@ -1,8 +1,8 @@
 class StudySessionsController < ApplicationController
+  before_action :find_deck
+  before_action :check_public_or_owner
 
   def show
-    @deck = Deck.find(params[:id])
-
     if current_user
       unique_id = current_user.id
     else
@@ -24,8 +24,6 @@ class StudySessionsController < ApplicationController
 
 
   def update
-    @deck = Deck.find(params[:id])
-
     if current_user
       unique_id = current_user.id
     else
@@ -58,6 +56,17 @@ class StudySessionsController < ApplicationController
 
     unless @card
       @card = study_session.study_session_cards.have_showed.sample.try(:card)
+    end
+  end
+
+  def find_deck
+    @deck = Deck.find_by(id: params[:id])
+    render_404 unless @deck
+  end
+
+  def check_public_or_owner
+    unless @deck.is_public || @deck.user == current_user
+      render_404
     end
   end
 end

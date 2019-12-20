@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
   before_action :required_login, except: :show
+  before_action :find_deck, only: [:show, :edit, :update, :destroy]
   before_action :check_auth, only: [:edit, :update, :destroy]
 
   def new
@@ -17,7 +18,9 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.find(params[:id])
+    unless @deck.is_public || @deck.user == current_user
+      render_404
+    end
     @cards = @deck.cards.page(params[:page]).per(1)
     respond_to do |format|
       format.html
@@ -28,11 +31,9 @@ class DecksController < ApplicationController
   end
 
   def edit
-    @deck = Deck.find(params[:id])
   end
 
   def update
-    @deck = Deck.find(params[:id])
     @deck.update(deck_params)
     redirect_to @deck
   end
@@ -51,7 +52,6 @@ class DecksController < ApplicationController
   end
 
   def destroy
-    @deck = Deck.find(params[:id])
     @deck.destroy
     flash[:info] = t(:delete_successfully)
     redirect_to home_url
@@ -65,10 +65,14 @@ class DecksController < ApplicationController
 
 
   def check_auth
-    @deck = Deck.find(params[:id])
     unless current_user == @deck.user
       flash[:warning] = t :not_authenticated
       redirect_to home_url
     end
+  end
+
+  def find_deck
+    @deck = Deck.find_by(id: params[:id])
+    render_404 unless @deck
   end
 end

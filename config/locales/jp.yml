@@ -149,3 +149,6 @@ jp:
   please_login: "ログインしてください"
   warning: "警告"
   not_authenticated: "このアクションは実行できません"
+  public_sets: "公開セット"
+  not_public_sets: "非公開のセット"
+  no_decks_found: "セットが見つかりませんでした。"

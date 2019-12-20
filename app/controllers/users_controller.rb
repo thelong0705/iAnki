@@ -1,18 +1,16 @@
 class UsersController < ApplicationController
   before_action :required_login, except: [:show, :create]
+  before_action :find_user, only: [:show, :edit, :update]
   before_action :check_auth, only: [:edit, :update]
 
   def show
-    @user = User.find(params[:id])
     @learning_decks = Deck.where(id: StudySession.where(unique_id: @user.id).pluck(:deck_id))
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user =  User.find(params[:id])
     @user.update(user_params)
     redirect_to edit_user_url(current_user)
   end
@@ -48,5 +46,10 @@ class UsersController < ApplicationController
       flash[:warning] = t :not_authenticated
       redirect_to home_url
     end
+  end
+
+  def find_user
+    @user = User.find_by(id: params[:id])
+    render_404 unless @user
   end
 end
