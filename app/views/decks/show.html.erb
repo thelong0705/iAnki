@@ -15,22 +15,22 @@
     <td><%= t(:creator) %></td>
     <td><%= @deck.user.name %></td>
   </tr>
-  <% if current_user == @deck.user  %>
-  <tr>
-    <td><%= t :public %></td>
-    <td><%= gen_public_string(@deck.is_public) %></td>
-  </tr>
+  <% if current_user == @deck.user %>
+    <tr>
+      <td><%= t :public %></td>
+      <td><%= gen_public_string(@deck.is_public) %></td>
+    </tr>
   <% end %>
   <tr>
     <td><%= t(:study) %></td>
     <td>
       <%= link_to t(:study_this_set), study_session_path(@deck), class: "btn btn-primary" %>
-      <% if current_user == @deck.user  %>
+      <% if current_user == @deck.user %>
         <%= link_to t(:daily_study), repeat_study_session_path(@deck), class: "btn btn-secondary" %>
-    <% end %>
+      <% end %>
     </td>
   </tr>
-  <% if current_user == @deck.user  %>
+  <% if current_user == @deck.user %>
     <tr>
       <td><%= t(:action) %></td>
       <td>
@@ -38,6 +38,16 @@
         <%= link_to t(:export_csv), deck_path(@deck, format: :csv), class: "btn btn-secondary" %>
         <%= link_to t(:destroy), deck_path, method: :delete,
                     data: {confirm: t(:are_you_sure)}, class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td><%= t(:action) %></td>
+      <td>
+        <%= form_with(url: copy_path(@deck)) do |f| %>
+          <%= f.submit "Copy", class: "btn btn-primary" %>
+          <%= link_to t(:export_csv), deck_path(@deck, format: :csv), class: "btn btn-secondary" %>
+      <% end %>
       </td>
     </tr>
   <% end %>

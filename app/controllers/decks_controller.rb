@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   before_action :required_login, except: :show
-  before_action :find_deck, only: [:show, :edit, :update, :destroy]
+  before_action :find_deck, only: [:show, :edit, :update, :destroy, :copy]
   before_action :check_auth, only: [:edit, :update, :destroy]
 
   def new
@@ -55,6 +55,20 @@ class DecksController < ApplicationController
     @deck.destroy
     flash[:info] = t(:delete_successfully)
     redirect_to home_url
+  end
+  
+  def copy
+    if current_user == @deck.user || !@deck.is_public
+      flash[:warning] = t :not_authenticated
+      redirect_to home_url
+    end
+
+    cards_attributes = []
+    @deck.cards.each do |card|
+      cards_attributes << { question: card.question, answer: card.answer}
+    end
+    deck = Deck.create!(user: current_user, name: @deck.name, cards_attributes: cards_attributes)
+    redirect_to deck
   end
 
   private
