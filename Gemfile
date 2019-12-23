@@ -62,3 +62,5 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'searchkick'
 gem 'sidekiq', '5.2.7'
 gem 'kaminari'
+gem 'simplecov', require: false, group: :test
+gem 'rails-controller-testing'

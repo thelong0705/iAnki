@@ -1,3 +1,9 @@
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter(/^\/spec\//) # For RSpec
+  add_filter(/app\/helpers\//) # For helpers
+end
 require 'capybara/rspec'
 
 RSpec.configure do |config|
