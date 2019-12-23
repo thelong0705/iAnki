@@ -9,7 +9,9 @@
         <%= f.select :is_public, [[t(:public), true], [t(:only_me), false ]], {}, {:class => 'form-control' } %>
       </div>
       <div class="col-3">
-        <button class="btn btn-primary" id="importCSV">Import CSV file</button>
+        <button class="btn btn-primary" id="importCSV">
+          <%= t(:import_csv) %>
+        </button>
       </div>
     </div>
   </div>

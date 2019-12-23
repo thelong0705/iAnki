@@ -9,6 +9,8 @@ jp:
         email: メール
         password: パスワード
         password_confirmation: 確認パスワード
+        new_cards_per_day: デイリーの新しいカード数
+        old_cards_per_day: デイリーの復習するカード数
   errors:
     format: "%{attribute}%{message}"
     messages:

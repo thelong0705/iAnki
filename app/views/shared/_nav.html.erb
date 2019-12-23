@@ -13,7 +13,7 @@
         <li class="nav-item ml-5">
           <%= form_tag(search_path, method: 'get', class: "form-inline") do %>
             <%= text_field_tag :query, nil, class: "form-control mr-sm-2", placeholder: (t :enter_key_word)  %>
-            <%= submit_tag "Search", name: nil, class: "btn btn-outline-light my-2 my-sm-0" %>
+            <%= submit_tag t(:search), name: nil, class: "btn btn-outline-light my-2 my-sm-0" %>
           <% end %>
         </li>
         <li class="ml-3">

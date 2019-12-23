@@ -158,3 +158,5 @@ jp:
   review_card: "復習するカード"
   repeat: "繰り返す"
   updated: "変更しました！"
+  back_to_home: "ホームへ戻る"
+  import_csv: "CSVインポート"
