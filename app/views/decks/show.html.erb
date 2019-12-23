@@ -70,7 +70,7 @@
   <tbody>
   <% @cards.each_with_index do |card, index| %>
     <tr>
-      <th scope="row"><%= index %></th>
+      <th scope="row"><%= @start_from + index %></th>
       <td><%= card.question %></td>
       <td><%= card.answer %></td>
     </tr>
