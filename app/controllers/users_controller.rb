@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    flash[:info]= t(:updated)
     redirect_to edit_user_url(current_user)
   end
 
@@ -30,7 +31,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :locale, :image)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation,
+                                 :locale, :image, :new_cards_per_day, :old_cards_per_day)
   end
 
   def required_login
