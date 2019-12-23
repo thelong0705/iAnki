@@ -5,4 +5,6 @@
   $(".question-area").text("<%= @card.question %>");
   $(".answer-area").text("<%= @card.answer %>");
   $("#card_id").val(<%= @card.id %>)
+  $("#unlearnCardInfo").html("<%= @deck.cards.learn_today.unlearn_card.count %>")
+  $("#reviewTodayInfo").html("<%= @deck.cards.learn_today.review_today.count %>")
 <% end %>

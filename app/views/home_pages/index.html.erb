@@ -1,36 +1,34 @@
-<h3>
-  <%= t :created_recently_sets %>
-</h3>
-<hr/>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="public-tab" data-toggle="tab" href="#public" role="tab" aria-controls="public" aria-selected="true">
+      <%= t :public_sets %>
+    </a>
+  </li>
+  <% if @user == current_user %>
+    <li class="nav-item">
+      <a class="nav-link" id="not-public-tab" data-toggle="tab" href="#not-public" role="tab" aria-controls="not-public" aria-selected="false">
+        <%= t :not_public_sets %>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+        <%= t :learning %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="public" role="tabpanel" aria-labelledby="public-tab">
+    <%= render partial: "shared/deck_table", locals: {decks: @user.decks.is_public} %>
+  </div>
+  <% if @user == current_user %>
+    <div class="tab-pane fade show" id="not-public" role="tabpanel" aria-labelledby="not-public-tab">
+      <%= render partial: "shared/deck_table", locals: {decks: @user.decks.is_not_public} %>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <%= render partial: "shared/deck_table", locals: {decks: @learning_decks} %>
+    </div>
+  <% end %>
+</div>
 
-<table class="table table-bordered mt-3 bg-light">
-  <thead>
-  <tr>
-    <th scope="col"><%= t :set_name %></th>
-    <th scope="col"><%= t :number_of_cards %></th>
-    <th scope="col"><%= t :created_at %></th>
-  </tr>
-  </thead>
-  <tbody>
-    <%= render @decks %>
-  </tbody>
-</table>
 
-
-<h3>
-  <%= t :learning %>
-</h3>
-<hr/>
-
-<table class="table table-bordered mt-3 bg-light">
-  <thead>
-  <tr>
-    <th scope="col"><%= t :set_name %></th>
-    <th scope="col"><%= t :number_of_cards %></th>
-    <th scope="col"><%= t :created_at %></th>
-  </tr>
-  </thead>
-  <tbody>
-  <%= render @learning_decks %>
-  </tbody>
-</table>

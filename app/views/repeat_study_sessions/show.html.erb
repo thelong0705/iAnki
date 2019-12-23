@@ -18,14 +18,18 @@
     <div class="row justify-content-center">
       <%= form_with url: repeat_study_session_path(@deck), method: "patch", class: "mt-3" do |f| %>
         <%= hidden_field_tag(:card_id, @card.id) %>
-        <table class="table table-borderless table-button">
+        <table class="table table-center">
           <tbody>
           <tr>
-            <td><%=@card.get_interval(0) %> Later</td>
-            <td><%=@card.get_interval(1) %> Days</td>
+            <td><%= t(:later) %> (<%= t(:today) %>) </td>
+            <td><%= t(:new_card) %></td>
+            <td><%= t(:review_card) %></td>
+            <td><%= t(:repeat) %> (<%= @card.get_interval(1) %> <%= t('datetime.prompts.day') %> ) </td>
           </tr>
           <tr>
-            <td><%= f.button "Again", class: "btn-lg ml-2", name: "commit", value: "0" %></td>
+            <td><%= f.button "Again", class: "btn-lg btn-secondary ml-2", name: "commit", value: "0" %></td>
+            <td id="unlearnCardInfo"><%= @deck.cards.learn_today.unlearn_card.count %></td>
+            <td id="reviewTodayInfo"><%= @deck.cards.learn_today.review_today.count %></td>
             <td><%= f.button "Good", class: "btn-lg btn-primary ml-2", name: "commit", value: "1" %></td>
           </tr>
           </tbody>

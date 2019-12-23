@@ -104,3 +104,8 @@ en:
   public_sets: "Public sets"
   not_public_sets: "Non public sets"
   no_decks_found: "We did not found any sets"
+  later: "Later"
+  today: "Today"
+  new_card: "New card"
+  review_card: "Review card"
+  repeat: "Repeat"

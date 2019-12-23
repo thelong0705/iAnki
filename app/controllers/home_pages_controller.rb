@@ -5,7 +5,7 @@ class HomePagesController < ApplicationController
       return
     end
 
-    @decks = current_user.decks
+    @user = current_user
     @learning_decks = Deck.where(id: StudySession.where(unique_id: current_user.id).pluck(:deck_id))
   end
 end

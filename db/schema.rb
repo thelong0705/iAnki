@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_18_100936) do
+ActiveRecord::Schema.define(version: 2019_12_23_032228) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2019_12_18_100936) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer "new_cards_per_day", default: 5
+    t.integer "old_cards_per_day", default: 5
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -2,10 +2,11 @@ class Card < ApplicationRecord
   searchkick
 
   belongs_to :deck, optional: true
-  scope :not_remembered, -> { where(is_remembered:  false) }
-  scope :unlearn_card, -> { where(practice_day: nil).limit(5) }
-  scope :review_today, -> { where(practice_day: Date.today).limit(5)}
-  scope :learn_today, -> { where(learn_at: Date.today)}
+  scope :not_remembered, -> { where(is_remembered: false) }
+  scope :unlearn_card, -> { where(practice_day: nil) }
+  scope :review_today, -> { where(practice_day: Date.today) }
+  scope :got_skip, -> { where("practice_day < ?", Date.today) }
+  scope :learn_today, -> { where(learn_at: Date.today) }
 
   def repeat_learning(answer)
     update repeat_by_fibonacci answer
@@ -22,10 +23,10 @@ class Card < ApplicationRecord
     interval = fibonacci(repetitions)
     practice_day = Date.today + interval
 
-   { repetitions: repetitions, interval: interval, practice_day: practice_day }
+    {repetitions: repetitions, interval: interval, practice_day: practice_day}
   end
 
   def fibonacci(n)
-    n <= 1 ? n + 1 :  fibonacci( n - 1 ) + fibonacci( n - 2 )
+    n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2)
   end
 end

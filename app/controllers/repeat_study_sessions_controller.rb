@@ -4,10 +4,10 @@ class RepeatStudySessionsController < ApplicationController
   before_action :find_deck
 
   def show
-    @deck = Deck.find(params[:id])
     if @deck.cards.learn_today.empty?
-      @deck.cards.unlearn_card.update_all(learn_at: Date.today)
-      @deck.cards.review_today.update_all(learn_at: Date.today)
+      @deck.cards.got_skip.update_all(practice_day: Date.today)
+      @deck.cards.unlearn_card.limit(current_user.new_cards_per_day).update_all(learn_at: Date.today)
+      @deck.cards.review_today.limit(current_user.old_cards_per_day).update_all(learn_at: Date.today)
     end
 
     @card = @deck.cards.learn_today.where(practice_day: [nil, Date.today]).sample

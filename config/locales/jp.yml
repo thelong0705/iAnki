@@ -152,3 +152,8 @@ jp:
   public_sets: "公開セット"
   not_public_sets: "非公開のセット"
   no_decks_found: "セットが見つかりませんでした。"
+  later: "後で"
+  today: "今日"
+  new_card: "新しいカード"
+  review_card: "復習するカード"
+  repeat: "繰り返す"
