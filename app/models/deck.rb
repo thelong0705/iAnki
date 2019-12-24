@@ -4,6 +4,10 @@ class Deck < ApplicationRecord
   accepts_nested_attributes_for :cards,
                                 reject_if: :all_blank,
                                 allow_destroy: true
+
+  validates_presence_of :cards
+  validates :name, presence: true
+
   searchkick
   scope :is_public, -> { where(is_public: true) }
   scope :is_not_public, -> { where(is_public: false) }
@@ -19,7 +23,6 @@ class Deck < ApplicationRecord
       cards.each do |card|
         csv << Deck.csv_attributes.map { |attr| card.send(attr) }
       end
-      p csv
     end
   end
 end

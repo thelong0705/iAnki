@@ -9,7 +9,7 @@ class Card < ApplicationRecord
   scope :learn_today, -> { where(learn_at: Date.today) }
 
   def repeat_learning(answer)
-    update repeat_by_fibonacci answer
+    update repeat_by_fibonacci(answer)
   end
 
   def get_interval(answer)

@@ -71,8 +71,38 @@ describe User, type: :model do
   end
 
   it "is invalid if password confirmation does not match" do
-    user = User.new(password: "password", password_confirmation: "passwrod")
+    user = User.new(password: "password", password_confirmation: "wrong password")
     user.valid?
     expect(user.errors[:password_confirmation]).to include("doesn't match Password")
   end
+
+  it "is not authenticated if activation attribute is nil" do
+    expect(user.authenticated?(:activation, User.new_token)).to be false
+  end
+
+  it "is authenticated if activation attribute equals token" do
+    user.save
+    expect(user.authenticated?(:activation, user.activation_token)).to be true
+  end
+
+  it "creates reset digest" do
+    user.save
+    user.create_reset_digest
+    expect(user.reset_token).to be_truthy
+  end
+
+  it "activate" do
+    user.activated = false
+    user.save
+    user.activate
+    expect(user.activated).to be true
+  end
+
+  it "expires password reset token" do
+    user.save
+    user.create_reset_digest
+    user.update_columns(reset_sent_at: 3.hours.ago)
+    expect(user.password_reset_expired?).to be true
+  end
+
 end

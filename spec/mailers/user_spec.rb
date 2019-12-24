@@ -11,10 +11,27 @@ RSpec.describe UserMailer, type: :mailer do
     }.to have_enqueued_job.on_queue('mailers')
   end
 
+  it 'send password mail job is created' do
+    ActiveJob::Base.queue_adapter = :test
+    user.create_reset_digest
+    expect {
+      UserMailer.password_reset(user, user.reset_token).deliver_later
+    }.to have_enqueued_job.on_queue('mailers')
+  end
+
   it 'account activation email is sent' do
     expect {
       perform_enqueued_jobs do
         UserMailer.account_activation(user, user.activation_token).deliver_later
+      end
+    }.to change { ActionMailer::Base.deliveries.size }.by(1)
+  end
+
+  it 'password reset email is sent' do
+    user.create_reset_digest
+    expect {
+      perform_enqueued_jobs do
+        UserMailer.password_reset(user, user.reset_token).deliver_later
       end
     }.to change { ActionMailer::Base.deliveries.size }.by(1)
   end

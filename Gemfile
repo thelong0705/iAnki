@@ -49,7 +49,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 4.0.0.beta3'
+  gem 'rails-controller-testing'
 end
 
 group :production do
@@ -63,4 +64,3 @@ gem 'searchkick'
 gem 'sidekiq', '5.2.7'
 gem 'kaminari'
 gem 'simplecov', require: false, group: :test
-gem 'rails-controller-testing'
