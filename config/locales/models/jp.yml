@@ -11,6 +11,9 @@ jp:
         password_confirmation: 確認パスワード
         new_cards_per_day: デイリーの新しいカード数
         old_cards_per_day: デイリーの復習するカード数
+      deck:
+        name: 名前
+        cards: カード
   errors:
     format: "%{attribute}%{message}"
     messages:

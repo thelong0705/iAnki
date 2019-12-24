@@ -13,7 +13,10 @@ class DecksController < ApplicationController
     if @deck.save
       redirect_to deck_path(@deck)
     else
-      render 'new'
+      respond_to do |format|
+        flash.now[:error] = @deck.errors.full_messages.first
+        format.js { render 'shared/toast' }
+      end
     end
   end
 
@@ -58,7 +61,7 @@ class DecksController < ApplicationController
     flash[:info] = t(:delete_successfully)
     redirect_to home_url
   end
-  
+
   def copy
     if current_user == @deck.user || !@deck.is_public
       flash[:warning] = t :not_authenticated
@@ -67,7 +70,7 @@ class DecksController < ApplicationController
 
     cards_attributes = []
     @deck.cards.each do |card|
-      cards_attributes << { question: card.question, answer: card.answer}
+      cards_attributes << {question: card.question, answer: card.answer}
     end
     deck = Deck.create!(user: current_user, name: @deck.name, cards_attributes: cards_attributes)
     redirect_to deck
