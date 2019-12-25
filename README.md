@@ -4,6 +4,7 @@ A website to help users study with flash card
 MySQL
 ```
 brew install mysql
+brew services start mysql
 ```
 Yarn
 ```
@@ -12,10 +13,32 @@ brew install yarn
 Node  
 https://nodejs.org/en/
 
+
 RUBY
 ```
 brew install rbenv
 rbenv install 2.6.3
+```
+Redis
+```
+brew install redis
+brew services start redis
+```
+Elasticsearch
+```
+brew install elasticsearch
+brew services start elasticsearch
+```
+
+Mailcatcher
+```
+gem install mailcatcher
+mailcatcher
+```
+
+Foreman
+```
+gem install foreman
 ```
 
 Application
@@ -26,8 +49,22 @@ echo "MYSQL_PASSWORD: 'your_mysql_pass'" >> config/local_env.yml
 bundle
 rails db:create
 rails db:migrate
-rails s
+rails db:seed
+foreman start -f Procfile.dev
 ```
-
 If you have trouble with install mysql2 gem you can look it up here  
 https://dev.to/morinoko/using-mysql-with-rails-6-and-installing-mysql-on-mac-macos-mojave-di3
+
+### Setup with docker
+
+```
+git clone https://github.com/thelong0705/iAnki
+cd iAnki
+git checkout docker-setup
+docker-compose build
+docker-compose up
+docker-compose run web rails db:create
+docker-compose run web rails db:migrate
+docker-compose run web rails db:seed
+```
+
