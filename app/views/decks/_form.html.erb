@@ -38,7 +38,7 @@
   <%= form_with(url: import_decks_path, multipart: true, html: {id: "uploadFile"}) do |f| %>
     <div class="input-group">
       <div class="custom-file">
-        <%= f.file_field :file, class: "custom-file-input" %>
+        <%= f.file_field :file, class: "custom-file-input", accept: 'text/csv' %>
         <%= f.label :file, "Import csv file", class: "custom-file-label" %>
       </div>
     </div>

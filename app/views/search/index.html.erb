@@ -1,5 +1,5 @@
 <% if params[:type] == 'users' %>
-  <table class="table table-center table-bordered mt-3 bg-light">
+  <table class="table table-center table-bordered bg-light">
     <thead>
     <tr>
       <th scope="col"><%= t :name %></th>
@@ -12,7 +12,7 @@
     </tbody>
   </table>
 <% elsif params[:type] == 'cards' %>
-  <table class="table table-center table-bordered mt-3 bg-light">
+  <table class="table table-center table-bordered bg-light">
     <thead>
     <tr>
       <th scope="col"><%= t :question %></th>
@@ -25,7 +25,7 @@
     </tbody>
   </table>
 <% else %>
-  <table class="table table-center table-bordered mt-3 bg-light">
+  <table class="table table-center table-bordered bg-light">
     <thead>
     <tr>
       <th scope="col"><%= t :set_name %></th>

@@ -44,12 +44,10 @@ class DecksController < ApplicationController
   end
 
   def import
-    cards_attributes = []
+    @cards= []
     CSV.foreach(params[:file], headers: true) do |row|
-      cards_attributes << row.to_hash
+      @cards << row.to_hash
     end
-
-    @deck = Deck.new(cards_attributes: cards_attributes)
 
     respond_to do |format|
       format.js
