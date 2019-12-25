@@ -1,11 +1,11 @@
 class SearchController < ApplicationController
   def index
     if params[:type] == "users"
-      @results = User.search(params[:query])
+      @results = User.where("name like ? ", "%#{params[:query]}%")
     elsif params[:type] == "cards"
-      @results = Card.search(params[:query])
+      @results = Card.where("question like ? or answer like ? ", "%#{params[:query]}%", "%#{params[:query]}%")
     else
-      @results = Deck.search(params[:query], where: {is_public: true})
+      @results = Deck.is_public.where("name like ? ", "%#{params[:query]}%")
     end
   end
 end
