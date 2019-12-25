@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm">
     <div class="card-header">
-      <%= deck.cards.count %> <%= t :terms %> | <%= deck.user.name %>
+      <%= deck.cards.count %> <%= t :terms %> | <%= link_to(deck.user.name, user_path(deck.user)) %>
     </div>
     <div class="card-body">
       <h3 class="card-text mb-5">
@@ -13,7 +13,7 @@
           <%= link_to t(:study), study_session_path(deck.id), class: "btn btn-sm btn-outline-secondary" %>
         </div>
         <small class="text-muted">
-          <%= "#{time_ago_in_words(deck.created_at)} #{t 'ago'} "%>
+          <%= "#{time_ago_in_words(deck.created_at)} #{t 'ago'} " %>
         </small>
       </div>
     </div>

@@ -24,7 +24,7 @@ class DecksController < ApplicationController
     unless @deck.is_public || @deck.user == current_user
       render_404
     end
-    cards_per_page = 1
+    cards_per_page = 10
     @cards = @deck.cards.page(params[:page]).per(cards_per_page)
     @start_from = params[:page] ? params[:page].to_i : 1
     respond_to do |format|

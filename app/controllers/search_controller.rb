@@ -5,10 +5,7 @@ class SearchController < ApplicationController
     elsif params[:type] == "cards"
       @results = Card.search(params[:query])
     else
-      @results = Deck.search(params[:query])
+      @results = Deck.search(params[:query], where: {is_public: true})
     end
   end
 end
-
-
-

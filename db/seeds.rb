@@ -1,10 +1,7 @@
-Card.delete_all
-Deck.delete_all
-
-10.times do
+20.times do
   User.create!(
       {
-          name: Faker::Name.name,
+          name: Faker::Name.name[0..19],
           email: Faker::Internet.email,
           password: "password",
           activated: true
@@ -12,7 +9,7 @@ Deck.delete_all
   )
 end
 
-100.times do
+200.times do
   card_attributes = (1..10).reduce([]) do |array|
     array.push({ question: Faker::Lorem.word, answer: Faker::Lorem.word })
   end

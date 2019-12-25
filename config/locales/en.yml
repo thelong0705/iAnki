@@ -8,10 +8,8 @@ en:
   terms: "terms"
   study: "study"
   footer_text:  "A website to help users study with flash card"
-  lorem_ifsum: "Lorem Ifsum"
-  long_lorem_ifsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique ligula eget nibh congue fermentum.
-    Nulla in pellentesque enim. Duis porta est vel sapien eleifend, id euismod est auctor. Morbi at rutrum justo.
-    Vivamus gravida congue nulla sed commodo. Integer at vestibulum turpis, sed interdum mi"
+  lorem_ifsum: "Best way to improve your results"
+  long_lorem_ifsum: "Search hundreds of study sets or create your own. Improve your results by studying with flashcards and spaced learning"
   number_of_cards: "Number of cards"
   invalid_email: "Invalid Email"
   invalid_password: "Invalid Password"
