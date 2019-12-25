@@ -160,3 +160,4 @@ jp:
   updated: "変更しました！"
   back_to_home: "ホームへ戻る"
   import_csv: "CSVインポート"
+  no_set_found: "セット数：0"

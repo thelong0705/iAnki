@@ -110,3 +110,4 @@ en:
   updated: "Updated successfully"
   back_to_home: "Back to home"
   import_csv: "Import CSV file"
+  no_set_found: "No set found"
