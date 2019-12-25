@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_12_23_032228) do
 
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_032228) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_032228) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "question"
     t.string "answer"
     t.bigint "deck_id", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_032228) do
     t.index ["deck_id"], name: "index_cards_on_deck_id"
   end
 
-  create_table "decks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+  create_table "decks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_032228) do
     t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
-  create_table "study_session_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+  create_table "study_session_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "card_id", null: false
     t.bigint "study_session_id", null: false
     t.boolean "is_showed", default: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_032228) do
     t.index ["study_session_id"], name: "index_study_session_cards_on_study_session_id"
   end
 
-  create_table "study_sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+  create_table "study_sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "deck_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_032228) do
     t.index ["deck_id"], name: "index_study_sessions_on_deck_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false

@@ -8,7 +8,7 @@ class Deck < ApplicationRecord
   validates_presence_of :cards
   validates :name, presence: true
 
-  searchkick
+  #searchkick
   scope :is_public, -> { where(is_public: true) }
   scope :is_not_public, -> { where(is_public: false) }
 

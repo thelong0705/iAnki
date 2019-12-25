@@ -60,7 +60,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-gem 'searchkick'
+#gem 'searchkick'
 gem 'sidekiq', '5.2.7'
 gem 'kaminari'
 gem 'simplecov', require: false, group: :test

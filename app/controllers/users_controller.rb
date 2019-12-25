@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      UserMailer.account_activation(@user, @user.activation_token).deliver_later
+      UserMailer.account_activation(@user, @user.activation_token).deliver_now
       flash.now[:info] = t 'check_your_email'
     end
     respond_to do |format|
