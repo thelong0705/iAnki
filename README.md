@@ -1,5 +1,6 @@
 # iAnki
 A website to help users study with flash card
+https://i-anki.herokuapp.com/
 ### Setup on Mac Mojave
 MySQL
 ```
@@ -54,17 +55,4 @@ foreman start -f Procfile.dev
 ```
 If you have trouble with install mysql2 gem you can look it up here  
 https://dev.to/morinoko/using-mysql-with-rails-6-and-installing-mysql-on-mac-macos-mojave-di3
-
-### Setup with docker
-
-```
-git clone https://github.com/thelong0705/iAnki
-cd iAnki
-git checkout docker-setup
-docker-compose build
-docker-compose up
-docker-compose run web rails db:create
-docker-compose run web rails db:migrate
-docker-compose run web rails db:seed
-```
 
